@@ -15,7 +15,7 @@
 <module>{LDAP_korisnik}-zadaca_3_lib_03_1</module>
 <module>{LDAP_korisnik}-zadaca_3_lib_06_1</module>
 -->
-		<module>{LDAP_korisnik}-zadaca_3_wa_1</module>
-		<module>{LDAP_korisnik}-zadaca_3_wa_2</module>
+		<module>tskobic-zadaca_3_wa_1</module>
+		<module>tskobic-zadaca_3_wa_2</module>
 	</modules>
 </project>
