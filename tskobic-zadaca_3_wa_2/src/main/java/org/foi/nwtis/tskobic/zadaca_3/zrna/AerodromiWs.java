@@ -1,8 +1,9 @@
 package org.foi.nwtis.tskobic.zadaca_3.zrna;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import org.foi.nwtis.podaci.Aerodrom;
+import org.foi.nwtis.tskobic.ws.aerodromi.Aerodrom;
 import org.foi.nwtis.tskobic.ws.aerodromi.Aerodromi;
 
 import jakarta.enterprise.context.RequestScoped;
@@ -21,6 +22,7 @@ public class AerodromiWs {
 		
 		service = new Aerodromi();
 		
-		List<Aerodrom> aerodromi = service.
+//		List<Aerodrom> aerodromi = service.
+		return new ArrayList<Aerodrom>();
 	}
 }
