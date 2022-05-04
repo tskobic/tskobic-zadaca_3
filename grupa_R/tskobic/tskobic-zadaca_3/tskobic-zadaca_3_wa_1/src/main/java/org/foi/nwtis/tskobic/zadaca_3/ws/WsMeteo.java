@@ -16,20 +16,19 @@ import jakarta.xml.ws.WebServiceContext;
 
 @WebService(serviceName = "meteo")
 public class WsMeteo {
-
 	@Resource
 	private WebServiceContext wsContext;
 	
-	// TODO preuzmi podatak iz postavki
-	String apiKey = "xxxxx";
+	// TODO preuzmi podataka iz postavki
+	String apikey = "a5dccbbaedf27ac79ddb41b0e20e4119";
 
 	@WebMethod
-	public MeteoPodaci dajMeteo(String icao){
+	public MeteoPodaci dajMeteo(String icao) {
 		// TODO preuzmi aerodrome iz tablice AERODROMI_PRACENI
 		List<Aerodrom> aerodromi = new ArrayList<>();
 		Aerodrom ad = new Aerodrom("LDZA", "Airport Zagreb", "HR", new Lokacija("45.743056", "16.068889"));
 		aerodromi.add(ad);
-		ad = new Aerodrom("LDVA", "Airport Varaždin", "HR", new Lokacija("46.2946472", "16.3829327"));
+		ad = new Aerodrom("LDVA", "Airport VaraĹľdin", "HR", new Lokacija("46.2946472", "16.3829327"));
 		aerodromi.add(ad);
 		ad = new Aerodrom("EDDF", "Airport Frankfurt", "DE", new Lokacija("0", "0"));
 		aerodromi.add(ad);
@@ -39,17 +38,17 @@ public class WsMeteo {
 		aerodromi.add(ad);
 
 		Aerodrom aerodrom = null;
+		
 		for(Aerodrom a: aerodromi) {
 			if(a.getIcao().compareTo(icao) == 0) {
 				aerodrom = a;
 			}
 		}
-
+				
 		Lokacija lokacija = aerodrom.getLokacija();
 		
-		OWMKlijent owmKlijent = new OWMKlijent(apiKey);
+		OWMKlijent owmKlijent = new OWMKlijent(apikey);
 		MeteoPodaci meteoPodaci = null;
-		
 		try {
 			meteoPodaci = owmKlijent.getRealTimeWeather(lokacija.getLatitude(), lokacija.getLongitude());
 		} catch (NwtisRestIznimka e) {
@@ -60,11 +59,12 @@ public class WsMeteo {
 	}
 	
 	
+	/*
+	 * TODO maknuti komentar nako što se dodaju 3_lib_03_1 i 3_lib_06_1 public
+	 * PostavkeBazaPodataka dajPBP () { ServletContext context = (ServletContext)
+	 * wsContext.getMessageContext().get(MessageContext.SERVLET_CONTEXT);
+	 * PostavkeBazaPodataka pbp = (PostavkeBazaPodataka)
+	 * context.getAttribute("Postavke"); return pbp }
+	 */
 
-// TODO maknuti komentar nakon što se dodaju 3_lib_03_1 i 3_lib_06_1
-//	public PostavkeBazaPodataka dajPBP() {
-//		ServletContext context = (ServletContext) wsContext.getMessageContext().get(MessageContext.SERVLET_CONTEXT);
-//		PostavkeBazaPodatak pbp = (PostavkeBazaPodataka) context.getAttribute("Postavke");
-//		return pbp;
-//	}
 }
