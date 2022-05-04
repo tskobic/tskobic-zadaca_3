@@ -24,10 +24,11 @@ public class AerodromiWs {
 		this.aerodromi = this.dajSveAerodrome();
 		return this.aerodromi;
 	}
-	
+
 	public void setAerodromi(List<Aerodrom> aerodromi) {
 		this.aerodromi = aerodromi;
 	}
+
 
 	public List<Aerodrom> dajSveAerodrome() {
 		service = new Aerodromi();
