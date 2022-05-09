@@ -5,6 +5,7 @@
 	<version>1.0.0</version>
 	<packaging>pom</packaging>
 	<name>tskobic-zadaca_3</name>
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>17</maven.compiler.source>
@@ -12,8 +13,8 @@
 	</properties>
 	<modules>
 		<!--
-<module>{LDAP_korisnik}-zadaca_3_lib_03_1</module>
-<module>{LDAP_korisnik}-zadaca_3_lib_06_1</module>
+ <module>{LDAP_korisnik}-zadaca_3_lib_03_1</module>
+ <module>{LDAP_korisnik}-zadaca_3_lib_06_1</module>
 -->
 		<module>tskobic-zadaca_3_wa_1</module>
 		<module>tskobic-zadaca_3_wa_2</module>

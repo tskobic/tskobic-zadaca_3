@@ -19,16 +19,16 @@ public class WsMeteo {
 	@Resource
 	private WebServiceContext wsContext;
 	
-	// TODO preuzmi podataka iz postavki
-	String apikey = "a5dccbbaedf27ac79ddb41b0e20e4119";
+	// TODO preuzimi podataka iz postavki
+	String apikey = "xxxxxx";
 
 	@WebMethod
 	public MeteoPodaci dajMeteo(String icao) {
-		// TODO preuzmi aerodrome iz tablice AERODROMI_PRACENI
+		// TODO preuzimi aerodrome iz bablice AERODROMI_PRACENI
 		List<Aerodrom> aerodromi = new ArrayList<>();
 		Aerodrom ad = new Aerodrom("LDZA", "Airport Zagreb", "HR", new Lokacija("45.743056", "16.068889"));
 		aerodromi.add(ad);
-		ad = new Aerodrom("LDVA", "Airport VaraĹľdin", "HR", new Lokacija("46.2946472", "16.3829327"));
+		ad = new Aerodrom("LDVA", "Airport Varaždin", "HR", new Lokacija("46.2946472", "16.3829327"));
 		aerodromi.add(ad);
 		ad = new Aerodrom("EDDF", "Airport Frankfurt", "DE", new Lokacija("0", "0"));
 		aerodromi.add(ad);

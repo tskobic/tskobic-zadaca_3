@@ -13,13 +13,12 @@ import jakarta.xml.ws.WebServiceContext;
 
 @WebService(serviceName = "aerodromi")
 public class WsAerodromi {
-
 	@Resource
 	private WebServiceContext wsContext;
 
 	@WebMethod
 	public List<Aerodrom> dajSveAerodrome() {
-		// TODO preuzmi aerodrome iz tablice AERODROMI_PRACENI
+		// TODO preuzimi aerodrome iz bablice AERODROMI_PRACENI
 		List<Aerodrom> aerodromi = new ArrayList<>();
 		Aerodrom ad = new Aerodrom("LDZA", "Airport Zagreb", "HR", new Lokacija("0", "0"));
 		aerodromi.add(ad);
@@ -36,11 +35,12 @@ public class WsAerodromi {
 	}
 	
 	
+	/*
+	 * TODO maknuti komentar nako što se dodaju 3_lib_03_1 i 3_lib_06_1 public
+	 * PostavkeBazaPodataka dajPBP () { ServletContext context = (ServletContext)
+	 * wsContext.getMessageContext().get(MessageContext.SERVLET_CONTEXT);
+	 * PostavkeBazaPodataka pbp = (PostavkeBazaPodataka)
+	 * context.getAttribute("Postavke"); return pbp }
+	 */
 
-// TODO maknuti komentar nakon što se dodaju 3_lib_03_1 i 3_lib_06_1
-//	public PostavkeBazaPodataka dajPBP() {
-//		ServletContext context = (ServletContext) wsContext.getMessageContext().get(MessageContext.SERVLET_CONTEXT);
-//		PostavkeBazaPodatak pbp = (PostavkeBazaPodataka) context.getAttribute("Postavke");
-//		return pbp;
-//	}
 }

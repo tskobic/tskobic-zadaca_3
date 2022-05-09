@@ -28,7 +28,7 @@ public class SlusacAplikacije implements ServletContextListener {
 //			konfig = new PostavkeBazaPodataka(putanja + nazivDatoteke);
 //			konfig.ucitajKonfiguraciju();
 //			context.setAttribute("Postavke", konfig);
-//			System.out.println("UÄŤitana konfiguracijska datoteka.");
+//			System.out.println("Učitana konfiguracijska datoteka.");
 //		} catch (NeispravnaKonfiguracija e1) {
 //			e1.printStackTrace();
 //			return;

@@ -7,22 +7,23 @@ import org.foi.nwtis.tskobic.zadaca_3.wsock.Info;
 import jakarta.inject.Inject;
 
 public class Osvjezivac extends Thread {
-	
+
 	boolean kraj = false;
 	int vrijemeSpavanja = 0;
 	
 	@Inject Info info;
-
+	
 	@Override
 	public synchronized void start() {
 		// TODO preuzeti iz konfiguracijskih podataka
 		vrijemeSpavanja = 20000;
+
 		super.start();
 	}
 
 	@Override
 	public void run() {
-		while (!kraj) {
+		while(! kraj) {
 			String vrijeme = new Date().toString();
 			int brojAerodroma = 7;
 			
@@ -31,7 +32,6 @@ public class Osvjezivac extends Thread {
 			try {
 				Thread.sleep(vrijemeSpavanja);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}

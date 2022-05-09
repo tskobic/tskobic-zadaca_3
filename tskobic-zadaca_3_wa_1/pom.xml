@@ -5,6 +5,7 @@
 	<version>1.0.0</version>
 	<packaging>war</packaging>
 	<name>tskobic-zadaca_3_wa_1</name>
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>17</maven.compiler.source>
@@ -20,7 +21,7 @@
 		<ServerEE.hostname>localhost</ServerEE.hostname>
 		<ServerEE.domainName>domain1</ServerEE.domainName>
 
-		<!--
+		<!-- 
 		<ServerEE.glassfish.home>/opt/glassfish6/</ServerEE.glassfish.home>
 		<ServerEE.glassfish.Web.home>/opt/glassfish6-web/</ServerEE.glassfish.Web.home>
 		<ServerEE.glassfish.containerName>glassfish6x</ServerEE.glassfish.containerName>
@@ -40,9 +41,9 @@
 		<ServerEE.payara.Web.home>C:\\payara5-web\\</ServerEE.payara.Web.home>
 		<ServerEE.payara.containerName>payara</ServerEE.payara.containerName>
 
-		<ServerEE.home>${ServerEE.glassfish.home}</ServerEE.home>
+		<ServerEE.home>${ServerEE.payara.Web.home}</ServerEE.home>
 		<ServerEE.domainDir>${ServerEE.home}\\glassfish\\domains</ServerEE.domainDir>
-		<ServerEE.containerName>${ServerEE.glassfish.containerName}</ServerEE.containerName>
+		<ServerEE.containerName>${ServerEE.payara.containerName}</ServerEE.containerName>
 		
 	</properties>
 
@@ -103,18 +104,18 @@
 			<artifactId>lombok</artifactId>
 			<version>1.18.22</version>
 		</dependency>
-		<!-- 
+<!--
 		<dependency>
 			<groupId>org.foi.nwtis.tskobic</groupId>
-			<artifactId>dkermek-zadaca_3_lib_03_1</artifactId>
+			<artifactId>tskobic-zadaca_3_lib_03_1</artifactId>
 			<version>1.0.3</version>
 		</dependency>
 		<dependency>
 			<groupId>org.foi.nwtis.tskobic</groupId>
-			<artifactId>dkermek-zadaca_3_lib_06_1</artifactId>
+			<artifactId>tskobic-zadaca_3_lib_06_1</artifactId>
 			<version>1.0.3</version>
 		</dependency>
-		-->
+-->		
 		<dependency>
 			<groupId>org.foi.nwtis</groupId>
 			<artifactId>NWTiS_REST_lib</artifactId>
