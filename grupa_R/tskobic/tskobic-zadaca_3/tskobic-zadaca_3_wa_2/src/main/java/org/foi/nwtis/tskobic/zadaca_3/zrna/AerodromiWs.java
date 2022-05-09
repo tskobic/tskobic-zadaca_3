@@ -15,7 +15,7 @@ import jakarta.xml.ws.WebServiceRef;
 @Named("aerodromiWs")
 public class AerodromiWs {
 
-	@WebServiceRef(wsdlLocation = "http://localhost:9090/tskobic-zadaca_3_wa_1/korisnici?wsdl")
+	@WebServiceRef(wsdlLocation = "http://localhost:9090/tskobic-zadaca_3_wa_1/aerodromi?wsdl")
 	private Aerodromi service;
 	
 	private List<Aerodrom> aerodromi = new ArrayList<>();
