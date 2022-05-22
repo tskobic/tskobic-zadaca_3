@@ -6,6 +6,12 @@
       <xsd:import namespace="http://ws.zadaca_3.tskobic.nwtis.foi.org/" schemaLocation="Aerodromi_schema1.xsd"/>
     </xsd:schema>
   </types>
+  <message name="dodajAerodromPreuzimanje">
+    <part name="parameters" element="tns:dodajAerodromPreuzimanje"/>
+  </message>
+  <message name="dodajAerodromPreuzimanjeResponse">
+    <part name="parameters" element="tns:dodajAerodromPreuzimanjeResponse"/>
+  </message>
   <message name="dajSveAerodrome">
     <part name="parameters" element="tns:dajSveAerodrome"/>
   </message>
@@ -13,6 +19,10 @@
     <part name="parameters" element="tns:dajSveAerodromeResponse"/>
   </message>
   <portType name="WsAerodromi">
+    <operation name="dodajAerodromPreuzimanje">
+      <input wsam:Action="http://ws.zadaca_3.tskobic.nwtis.foi.org/WsAerodromi/dodajAerodromPreuzimanjeRequest" message="tns:dodajAerodromPreuzimanje"/>
+      <output wsam:Action="http://ws.zadaca_3.tskobic.nwtis.foi.org/WsAerodromi/dodajAerodromPreuzimanjeResponse" message="tns:dodajAerodromPreuzimanjeResponse"/>
+    </operation>
     <operation name="dajSveAerodrome">
       <input wsam:Action="http://ws.zadaca_3.tskobic.nwtis.foi.org/WsAerodromi/dajSveAerodromeRequest" message="tns:dajSveAerodrome"/>
       <output wsam:Action="http://ws.zadaca_3.tskobic.nwtis.foi.org/WsAerodromi/dajSveAerodromeResponse" message="tns:dajSveAerodromeResponse"/>
@@ -20,6 +30,15 @@
   </portType>
   <binding name="WsAerodromiPortBinding" type="tns:WsAerodromi">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <operation name="dodajAerodromPreuzimanje">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
     <operation name="dajSveAerodrome">
       <soap:operation soapAction=""/>
       <input>

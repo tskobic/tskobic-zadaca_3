@@ -15,9 +15,9 @@ import jakarta.websocket.server.ServerEndpoint;
 
 @ServerEndpoint("/info")
 public class Info {
-	Set<Session> sesije = new HashSet<>();
+	static Set<Session> sesije = new HashSet<>();
 	
-	public void posaljiPoruku(String poruka) {
+	static public void posaljiPoruku(String poruka) {
 		for(Session sesija: sesije) {
 			if(sesija.isOpen()) {
 				try {

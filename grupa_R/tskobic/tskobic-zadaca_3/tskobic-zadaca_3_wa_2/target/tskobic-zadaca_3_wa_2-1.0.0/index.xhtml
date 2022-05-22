@@ -4,35 +4,12 @@
       xmlns:f="http://java.sun.com/jsf/core"    
       xmlns:h="http://java.sun.com/jsf/html">
     <h:head>
-        <title>Pregled aerodroma</title>
+        <title>T. Škobić - zadaća 3.</title>
         <h:outputStylesheet library="css" name="default.css"  /> 
     </h:head>
     <h:body>
-        <h2>Pregled aerodroma</h2>
-        <h:link outcome="index2.xhtml" value="Ostali primjeri"/><br/><br/>
-        <h:dataTable value="#{aerodromiWs.aerodromi}" var="a"
-                     styleClass="authorTable"
-                     headerClass="authorTableHeader"
-                     rowClasses="authorTableOddRow,authorTableEvenRow">
-            <h:column>
-                <f:facet name="header">
-                    <h:outputText value="ICAO" />
-                </f:facet>
-                <h:outputText value="#{a.icao}" />
-            </h:column>  
-            <h:column>
-                <f:facet name="header">
-                    <h:outputText value="Naziv" />
-                </f:facet>
-                <h:outputText value="#{a.naziv}" />
-            </h:column>  
-            <h:column>
-                <f:facet name="header">
-                    <h:outputText value="Država" />
-                </f:facet>
-                <h:outputText value="#{a.drzava}" />
-            </h:column>  
-        </h:dataTable>
-        <br />
+        <h2>T. Škobić - zadaća 3.</h2>
+        <h:link outcome="pregledSvihAerodroma.xhtml" value="Pregled svih aerodroma"/><br/><br/>
+        <h:link outcome="meteo.xhtml" value="Pregled meteo podataka"/><br/><br/>
     </h:body>
 </html> 
