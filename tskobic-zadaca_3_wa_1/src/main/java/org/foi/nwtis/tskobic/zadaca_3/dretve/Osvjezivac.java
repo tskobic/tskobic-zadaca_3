@@ -2,33 +2,42 @@ package org.foi.nwtis.tskobic.zadaca_3.dretve;
 
 import java.util.Date;
 
+import org.foi.nwtis.tskobic.vjezba_06.konfiguracije.bazaPodataka.PostavkeBazaPodataka;
 import org.foi.nwtis.tskobic.zadaca_3.wsock.Info;
 
 import jakarta.inject.Inject;
+import jakarta.servlet.ServletContext;
 
 public class Osvjezivac extends Thread {
 
 	boolean kraj = false;
 	int vrijemeSpavanja = 0;
+	ServletContext context;
+	PostavkeBazaPodataka konfig;
 	
-	@Inject Info info;
-	
+	@Inject
+	static Info info;
+
+	public Osvjezivac(ServletContext context) {
+		this.context = context;
+		this.konfig = (PostavkeBazaPodataka) context.getAttribute("Postavke");
+	}
+
 	@Override
 	public synchronized void start() {
-		// TODO preuzeti iz konfiguracijskih podataka
-		vrijemeSpavanja = 20000;
+		vrijemeSpavanja = Integer.parseInt(konfig.dajPostavku("ciklus.spavanje")) * 1000;
 
 		super.start();
 	}
 
 	@Override
 	public void run() {
-		while(! kraj) {
+		while (!kraj) {
 			String vrijeme = new Date().toString();
 			int brojAerodroma = 7;
-			
-			info.posaljiPoruku(vrijeme + ", " + brojAerodroma);
-			
+
+			Info.posaljiPoruku(vrijeme + ", " + brojAerodroma);
+
 			try {
 				Thread.sleep(vrijemeSpavanja);
 			} catch (InterruptedException e) {

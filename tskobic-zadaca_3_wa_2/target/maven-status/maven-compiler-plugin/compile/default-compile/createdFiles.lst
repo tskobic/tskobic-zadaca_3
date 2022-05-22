@@ -1,4 +1,5 @@
 org\foi\nwtis\tskobic\ws\meteo\DajMeteoResponse.class
+org\foi\nwtis\tskobic\ws\aerodromi\DodajAerodromPreuzimanjeResponse.class
 org\foi\nwtis\tskobic\zadaca_3\zrna\MeteoWs.class
 org\foi\nwtis\tskobic\ws\aerodromi\Lokacija.class
 org\foi\nwtis\tskobic\ws\aerodromi\WsAerodromi.class
@@ -9,6 +10,7 @@ org\foi\nwtis\tskobic\ws\meteo\MeteoPodaci.class
 org\foi\nwtis\tskobic\ws\meteo\ObjectFactory.class
 org\foi\nwtis\tskobic\ws\meteo\package-info.class
 org\foi\nwtis\tskobic\ws\meteo\Meteo.class
+org\foi\nwtis\tskobic\ws\aerodromi\DodajAerodromPreuzimanje.class
 org\foi\nwtis\tskobic\ws\meteo\DajMeteo.class
 org\foi\nwtis\tskobic\zadaca_3\slusaci\SlusacAplikacije.class
 org\foi\nwtis\tskobic\ws\aerodromi\DajSveAerodromeResponse.class

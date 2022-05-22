@@ -5,6 +5,22 @@
 
   <xs:element name="dajSveAerodromeResponse" type="tns:dajSveAerodromeResponse"/>
 
+  <xs:element name="dodajAerodromPreuzimanje" type="tns:dodajAerodromPreuzimanje"/>
+
+  <xs:element name="dodajAerodromPreuzimanjeResponse" type="tns:dodajAerodromPreuzimanjeResponse"/>
+
+  <xs:complexType name="dodajAerodromPreuzimanje">
+    <xs:sequence>
+      <xs:element name="icao" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="dodajAerodromPreuzimanjeResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
   <xs:complexType name="dajSveAerodrome">
     <xs:sequence/>
   </xs:complexType>

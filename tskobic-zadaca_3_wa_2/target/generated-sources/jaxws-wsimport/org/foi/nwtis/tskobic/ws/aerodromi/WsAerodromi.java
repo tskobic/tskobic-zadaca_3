@@ -3,6 +3,7 @@ package org.foi.nwtis.tskobic.ws.aerodromi;
 
 import java.util.List;
 import jakarta.jws.WebMethod;
+import jakarta.jws.WebParam;
 import jakarta.jws.WebResult;
 import jakarta.jws.WebService;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
@@ -23,6 +24,21 @@ import jakarta.xml.ws.ResponseWrapper;
 })
 public interface WsAerodromi {
 
+
+    /**
+     * 
+     * @param icao
+     * @return
+     *     returns boolean
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "dodajAerodromPreuzimanje", targetNamespace = "http://ws.zadaca_3.tskobic.nwtis.foi.org/", className = "org.foi.nwtis.tskobic.ws.aerodromi.DodajAerodromPreuzimanje")
+    @ResponseWrapper(localName = "dodajAerodromPreuzimanjeResponse", targetNamespace = "http://ws.zadaca_3.tskobic.nwtis.foi.org/", className = "org.foi.nwtis.tskobic.ws.aerodromi.DodajAerodromPreuzimanjeResponse")
+    @Action(input = "http://ws.zadaca_3.tskobic.nwtis.foi.org/WsAerodromi/dodajAerodromPreuzimanjeRequest", output = "http://ws.zadaca_3.tskobic.nwtis.foi.org/WsAerodromi/dodajAerodromPreuzimanjeResponse")
+    public boolean dodajAerodromPreuzimanje(
+        @WebParam(name = "icao", targetNamespace = "")
+        String icao);
 
     /**
      * 

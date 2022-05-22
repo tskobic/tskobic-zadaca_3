@@ -79,7 +79,6 @@
 			<version>3.0.0</version>
 			<type>pom</type>
 		</dependency>
-<!--		
 		<dependency>
 			<groupId>org.foi.nwtis.tskobic</groupId>
 			<artifactId>tskobic-zadaca_3_lib_03_1</artifactId>
@@ -90,7 +89,6 @@
 			<artifactId>tskobic-zadaca_3_lib_06_1</artifactId>
 			<version>1.0.3</version>
 		</dependency>
--->		
 		<dependency>
 			<groupId>org.foi.nwtis</groupId>
 			<artifactId>NWTiS_REST_lib</artifactId>
