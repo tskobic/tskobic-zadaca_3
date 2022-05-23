@@ -24,6 +24,12 @@ import jakarta.xml.bind.annotation.XmlRegistry;
 @XmlRegistry
 public class ObjectFactory {
 
+    private final static QName _DajAerodromePreuzimanje_QNAME = new QName("http://ws.zadaca_3.tskobic.nwtis.foi.org/", "dajAerodromePreuzimanje");
+    private final static QName _DajAerodromePreuzimanjeResponse_QNAME = new QName("http://ws.zadaca_3.tskobic.nwtis.foi.org/", "dajAerodromePreuzimanjeResponse");
+    private final static QName _DajDolaske_QNAME = new QName("http://ws.zadaca_3.tskobic.nwtis.foi.org/", "dajDolaske");
+    private final static QName _DajDolaskeResponse_QNAME = new QName("http://ws.zadaca_3.tskobic.nwtis.foi.org/", "dajDolaskeResponse");
+    private final static QName _DajPolaske_QNAME = new QName("http://ws.zadaca_3.tskobic.nwtis.foi.org/", "dajPolaske");
+    private final static QName _DajPolaskeResponse_QNAME = new QName("http://ws.zadaca_3.tskobic.nwtis.foi.org/", "dajPolaskeResponse");
     private final static QName _DajSveAerodrome_QNAME = new QName("http://ws.zadaca_3.tskobic.nwtis.foi.org/", "dajSveAerodrome");
     private final static QName _DajSveAerodromeResponse_QNAME = new QName("http://ws.zadaca_3.tskobic.nwtis.foi.org/", "dajSveAerodromeResponse");
     private final static QName _DodajAerodromPreuzimanje_QNAME = new QName("http://ws.zadaca_3.tskobic.nwtis.foi.org/", "dodajAerodromPreuzimanje");
@@ -34,6 +40,54 @@ public class ObjectFactory {
      * 
      */
     public ObjectFactory() {
+    }
+
+    /**
+     * Create an instance of {@link DajAerodromePreuzimanje }
+     * 
+     */
+    public DajAerodromePreuzimanje createDajAerodromePreuzimanje() {
+        return new DajAerodromePreuzimanje();
+    }
+
+    /**
+     * Create an instance of {@link DajAerodromePreuzimanjeResponse }
+     * 
+     */
+    public DajAerodromePreuzimanjeResponse createDajAerodromePreuzimanjeResponse() {
+        return new DajAerodromePreuzimanjeResponse();
+    }
+
+    /**
+     * Create an instance of {@link DajDolaske }
+     * 
+     */
+    public DajDolaske createDajDolaske() {
+        return new DajDolaske();
+    }
+
+    /**
+     * Create an instance of {@link DajDolaskeResponse }
+     * 
+     */
+    public DajDolaskeResponse createDajDolaskeResponse() {
+        return new DajDolaskeResponse();
+    }
+
+    /**
+     * Create an instance of {@link DajPolaske }
+     * 
+     */
+    public DajPolaske createDajPolaske() {
+        return new DajPolaske();
+    }
+
+    /**
+     * Create an instance of {@link DajPolaskeResponse }
+     * 
+     */
+    public DajPolaskeResponse createDajPolaskeResponse() {
+        return new DajPolaskeResponse();
     }
 
     /**
@@ -69,6 +123,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link AvionLeti }
+     * 
+     */
+    public AvionLeti createAvionLeti() {
+        return new AvionLeti();
+    }
+
+    /**
      * Create an instance of {@link Aerodrom }
      * 
      */
@@ -82,6 +144,84 @@ public class ObjectFactory {
      */
     public Lokacija createLokacija() {
         return new Lokacija();
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link DajAerodromePreuzimanje }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link DajAerodromePreuzimanje }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://ws.zadaca_3.tskobic.nwtis.foi.org/", name = "dajAerodromePreuzimanje")
+    public JAXBElement<DajAerodromePreuzimanje> createDajAerodromePreuzimanje(DajAerodromePreuzimanje value) {
+        return new JAXBElement<DajAerodromePreuzimanje>(_DajAerodromePreuzimanje_QNAME, DajAerodromePreuzimanje.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link DajAerodromePreuzimanjeResponse }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link DajAerodromePreuzimanjeResponse }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://ws.zadaca_3.tskobic.nwtis.foi.org/", name = "dajAerodromePreuzimanjeResponse")
+    public JAXBElement<DajAerodromePreuzimanjeResponse> createDajAerodromePreuzimanjeResponse(DajAerodromePreuzimanjeResponse value) {
+        return new JAXBElement<DajAerodromePreuzimanjeResponse>(_DajAerodromePreuzimanjeResponse_QNAME, DajAerodromePreuzimanjeResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link DajDolaske }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link DajDolaske }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://ws.zadaca_3.tskobic.nwtis.foi.org/", name = "dajDolaske")
+    public JAXBElement<DajDolaske> createDajDolaske(DajDolaske value) {
+        return new JAXBElement<DajDolaske>(_DajDolaske_QNAME, DajDolaske.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link DajDolaskeResponse }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link DajDolaskeResponse }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://ws.zadaca_3.tskobic.nwtis.foi.org/", name = "dajDolaskeResponse")
+    public JAXBElement<DajDolaskeResponse> createDajDolaskeResponse(DajDolaskeResponse value) {
+        return new JAXBElement<DajDolaskeResponse>(_DajDolaskeResponse_QNAME, DajDolaskeResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link DajPolaske }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link DajPolaske }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://ws.zadaca_3.tskobic.nwtis.foi.org/", name = "dajPolaske")
+    public JAXBElement<DajPolaske> createDajPolaske(DajPolaske value) {
+        return new JAXBElement<DajPolaske>(_DajPolaske_QNAME, DajPolaske.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link DajPolaskeResponse }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link DajPolaskeResponse }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://ws.zadaca_3.tskobic.nwtis.foi.org/", name = "dajPolaskeResponse")
+    public JAXBElement<DajPolaskeResponse> createDajPolaskeResponse(DajPolaskeResponse value) {
+        return new JAXBElement<DajPolaskeResponse>(_DajPolaskeResponse_QNAME, DajPolaskeResponse.class, null, value);
     }
 
     /**

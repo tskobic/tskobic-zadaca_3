@@ -26,7 +26,7 @@ public interface WsMeteo {
 
     /**
      * 
-     * @param arg0
+     * @param icao
      * @return
      *     returns org.foi.nwtis.tskobic.ws.meteo.MeteoPodaci
      */
@@ -36,7 +36,7 @@ public interface WsMeteo {
     @ResponseWrapper(localName = "dajMeteoResponse", targetNamespace = "http://ws.zadaca_3.tskobic.nwtis.foi.org/", className = "org.foi.nwtis.tskobic.ws.meteo.DajMeteoResponse")
     @Action(input = "http://ws.zadaca_3.tskobic.nwtis.foi.org/WsMeteo/dajMeteoRequest", output = "http://ws.zadaca_3.tskobic.nwtis.foi.org/WsMeteo/dajMeteoResponse")
     public MeteoPodaci dajMeteo(
-        @WebParam(name = "arg0", targetNamespace = "")
-        String arg0);
+        @WebParam(name = "icao", targetNamespace = "")
+        String icao);
 
 }

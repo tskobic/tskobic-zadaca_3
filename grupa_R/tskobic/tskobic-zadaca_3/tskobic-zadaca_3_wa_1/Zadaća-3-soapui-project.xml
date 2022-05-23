@@ -7,6 +7,30 @@
       <xsd:import namespace="http://ws.zadaca_3.tskobic.nwtis.foi.org/" schemaLocation="http://localhost:9090/tskobic-zadaca_3_wa_1/aerodromi?xsd=1"/>
     </xsd:schema>
   </types>
+  <message name="dajPolaske">
+    <part name="parameters" element="tns:dajPolaske"/>
+  </message>
+  <message name="dajPolaskeResponse">
+    <part name="parameters" element="tns:dajPolaskeResponse"/>
+  </message>
+  <message name="dajDolaske">
+    <part name="parameters" element="tns:dajDolaske"/>
+  </message>
+  <message name="dajDolaskeResponse">
+    <part name="parameters" element="tns:dajDolaskeResponse"/>
+  </message>
+  <message name="dodajAerodromPreuzimanje">
+    <part name="parameters" element="tns:dodajAerodromPreuzimanje"/>
+  </message>
+  <message name="dodajAerodromPreuzimanjeResponse">
+    <part name="parameters" element="tns:dodajAerodromPreuzimanjeResponse"/>
+  </message>
+  <message name="dajAerodromePreuzimanje">
+    <part name="parameters" element="tns:dajAerodromePreuzimanje"/>
+  </message>
+  <message name="dajAerodromePreuzimanjeResponse">
+    <part name="parameters" element="tns:dajAerodromePreuzimanjeResponse"/>
+  </message>
   <message name="dajSveAerodrome">
     <part name="parameters" element="tns:dajSveAerodrome"/>
   </message>
@@ -14,6 +38,22 @@
     <part name="parameters" element="tns:dajSveAerodromeResponse"/>
   </message>
   <portType name="WsAerodromi">
+    <operation name="dajPolaske">
+      <input wsam:Action="http://ws.zadaca_3.tskobic.nwtis.foi.org/WsAerodromi/dajPolaskeRequest" message="tns:dajPolaske"/>
+      <output wsam:Action="http://ws.zadaca_3.tskobic.nwtis.foi.org/WsAerodromi/dajPolaskeResponse" message="tns:dajPolaskeResponse"/>
+    </operation>
+    <operation name="dajDolaske">
+      <input wsam:Action="http://ws.zadaca_3.tskobic.nwtis.foi.org/WsAerodromi/dajDolaskeRequest" message="tns:dajDolaske"/>
+      <output wsam:Action="http://ws.zadaca_3.tskobic.nwtis.foi.org/WsAerodromi/dajDolaskeResponse" message="tns:dajDolaskeResponse"/>
+    </operation>
+    <operation name="dodajAerodromPreuzimanje">
+      <input wsam:Action="http://ws.zadaca_3.tskobic.nwtis.foi.org/WsAerodromi/dodajAerodromPreuzimanjeRequest" message="tns:dodajAerodromPreuzimanje"/>
+      <output wsam:Action="http://ws.zadaca_3.tskobic.nwtis.foi.org/WsAerodromi/dodajAerodromPreuzimanjeResponse" message="tns:dodajAerodromPreuzimanjeResponse"/>
+    </operation>
+    <operation name="dajAerodromePreuzimanje">
+      <input wsam:Action="http://ws.zadaca_3.tskobic.nwtis.foi.org/WsAerodromi/dajAerodromePreuzimanjeRequest" message="tns:dajAerodromePreuzimanje"/>
+      <output wsam:Action="http://ws.zadaca_3.tskobic.nwtis.foi.org/WsAerodromi/dajAerodromePreuzimanjeResponse" message="tns:dajAerodromePreuzimanjeResponse"/>
+    </operation>
     <operation name="dajSveAerodrome">
       <input wsam:Action="http://ws.zadaca_3.tskobic.nwtis.foi.org/WsAerodromi/dajSveAerodromeRequest" message="tns:dajSveAerodrome"/>
       <output wsam:Action="http://ws.zadaca_3.tskobic.nwtis.foi.org/WsAerodromi/dajSveAerodromeResponse" message="tns:dajSveAerodromeResponse"/>
@@ -21,6 +61,42 @@
   </portType>
   <binding name="WsAerodromiPortBinding" type="tns:WsAerodromi">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <operation name="dajPolaske">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="dajDolaske">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="dodajAerodromPreuzimanje">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="dajAerodromePreuzimanje">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
     <operation name="dajSveAerodrome">
       <soap:operation soapAction=""/>
       <input>
@@ -38,8 +114,53 @@
   </service>
 </definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://localhost:9090/tskobic-zadaca_3_wa_1/aerodromi?xsd=1</con:url><con:content><![CDATA[<!--Published by JAX-WS RI (https://github.com/eclipse-ee4j/metro-jax-ws). RI's version is Eclipse Metro/3.0.3 (RELEASE-3.0.3-7a63cef; 2021-10-13T11:40:48+0000) JAXWS-RI/3.0.2 JAXWS-API/3.0.1 JAXB-RI/3.0.2 JAXB-API/3.0.1 git-revision#7a63cef.-->
 <xs:schema version="1.0" targetNamespace="http://ws.zadaca_3.tskobic.nwtis.foi.org/" xmlns:tns="http://ws.zadaca_3.tskobic.nwtis.foi.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="dajAerodromePreuzimanje" type="tns:dajAerodromePreuzimanje"/>
+  <xs:element name="dajAerodromePreuzimanjeResponse" type="tns:dajAerodromePreuzimanjeResponse"/>
+  <xs:element name="dajDolaske" type="tns:dajDolaske"/>
+  <xs:element name="dajDolaskeResponse" type="tns:dajDolaskeResponse"/>
+  <xs:element name="dajPolaske" type="tns:dajPolaske"/>
+  <xs:element name="dajPolaskeResponse" type="tns:dajPolaskeResponse"/>
   <xs:element name="dajSveAerodrome" type="tns:dajSveAerodrome"/>
   <xs:element name="dajSveAerodromeResponse" type="tns:dajSveAerodromeResponse"/>
+  <xs:element name="dodajAerodromPreuzimanje" type="tns:dodajAerodromPreuzimanje"/>
+  <xs:element name="dodajAerodromPreuzimanjeResponse" type="tns:dodajAerodromPreuzimanjeResponse"/>
+  <xs:complexType name="dajDolaske">
+    <xs:sequence>
+      <xs:element name="icao" type="xs:string" minOccurs="0"/>
+      <xs:element name="dan" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="dajDolaskeResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:avionLeti" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="avionLeti">
+    <xs:sequence>
+      <xs:element name="arrivalAirportCandidatesCount" type="xs:int"/>
+      <xs:element name="callsign" type="xs:string" minOccurs="0"/>
+      <xs:element name="departureAirportCandidatesCount" type="xs:int"/>
+      <xs:element name="estArrivalAirport" type="xs:string" minOccurs="0"/>
+      <xs:element name="estArrivalAirportHorizDistance" type="xs:int"/>
+      <xs:element name="estArrivalAirportVertDistance" type="xs:int"/>
+      <xs:element name="estDepartureAirport" type="xs:string" minOccurs="0"/>
+      <xs:element name="estDepartureAirportHorizDistance" type="xs:int"/>
+      <xs:element name="estDepartureAirportVertDistance" type="xs:int"/>
+      <xs:element name="firstSeen" type="xs:int"/>
+      <xs:element name="icao24" type="xs:string" minOccurs="0"/>
+      <xs:element name="lastSeen" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="dodajAerodromPreuzimanje">
+    <xs:sequence>
+      <xs:element name="icao" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="dodajAerodromPreuzimanjeResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="dajSveAerodrome">
     <xs:sequence/>
   </xs:complexType>
@@ -62,12 +183,64 @@
       <xs:element name="longitude" type="xs:string" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="dajAerodromePreuzimanje">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="dajAerodromePreuzimanjeResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:aerodrom" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="dajPolaske">
+    <xs:sequence>
+      <xs:element name="icao" type="xs:string" minOccurs="0"/>
+      <xs:element name="dan" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="dajPolaskeResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:avionLeti" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
 </xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:9090/tskobic-zadaca_3_wa_1/aerodromi</con:endpoint></con:endpoints><con:operation id="13251bed-9eb1-42fb-8985-db968b537994" isOneWay="false" action="" name="dajSveAerodrome" bindingOperationName="dajSveAerodrome" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="e8de8953-9b10-4f05-b5bb-f3b543910016" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9090/tskobic-zadaca_3_wa_1/aerodromi</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.zadaca_3.tskobic.nwtis.foi.org/">
    <soapenv:Header/>
    <soapenv:Body>
       <ws:dajSveAerodrome/>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://ws.zadaca_3.tskobic.nwtis.foi.org/WsAerodromi/dajSveAerodromeRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="0b63e680-8f74-42b9-96bb-5df0c6f1d18d" wsaVersion="NONE" name="WsMeteoPortBinding" type="wsdl" bindingName="{http://ws.zadaca_3.tskobic.nwtis.foi.org/}WsMeteoPortBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:9090/tskobic-zadaca_3_wa_1/meteo?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:9090/tskobic-zadaca_3_wa_1/meteo?wsdl"><con:part><con:url>http://localhost:9090/tskobic-zadaca_3_wa_1/meteo?wsdl</con:url><con:content><![CDATA[<!--Published by JAX-WS RI (https://github.com/eclipse-ee4j/metro-jax-ws). RI's version is Eclipse Metro/3.0.3 (RELEASE-3.0.3-7a63cef; 2021-10-13T11:40:48+0000) JAXWS-RI/3.0.2 JAXWS-API/3.0.1 JAXB-RI/3.0.2 JAXB-API/3.0.1 git-revision#7a63cef.-->
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://ws.zadaca_3.tskobic.nwtis.foi.org/WsAerodromi/dajSveAerodromeRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="6bec5b1f-fb05-4218-86d8-31d575f87fa6" isOneWay="false" action="" name="dajPolaske" bindingOperationName="dajPolaske" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="a5431e8d-9112-4913-aca3-2d69f19ceb6d" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9090/tskobic-zadaca_3_wa_1/aerodromi</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.zadaca_3.tskobic.nwtis.foi.org/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ws:dajPolaske>\r
+         <!--Optional:-->\r
+         <icao>OMDB</icao>\r
+         <!--Optional:-->\r
+         <dan>1.1.2022</dan>\r
+      </ws:dajPolaske>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://ws.zadaca_3.tskobic.nwtis.foi.org/WsAerodromi/dajPolaskeRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="c2564f54-be2e-4bd2-a968-6a1e2da01a4d" isOneWay="false" action="" name="dajDolaske" bindingOperationName="dajDolaske" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="0c251bb2-6575-4930-9c5f-cb002007439c" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9090/tskobic-zadaca_3_wa_1/aerodromi</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.zadaca_3.tskobic.nwtis.foi.org/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ws:dajDolaske>\r
+         <!--Optional:-->\r
+         <icao>OMDB</icao>\r
+         <!--Optional:-->\r
+         <dan>1.1.2022</dan>\r
+      </ws:dajDolaske>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://ws.zadaca_3.tskobic.nwtis.foi.org/WsAerodromi/dajDolaskeRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="26075a9f-e7dd-4935-87c8-39236ba7a9fe" isOneWay="false" action="" name="dodajAerodromPreuzimanje" bindingOperationName="dodajAerodromPreuzimanje" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="b64a4f99-115e-48fd-b7d3-c950d3cbf4fa" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9090/tskobic-zadaca_3_wa_1/aerodromi</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.zadaca_3.tskobic.nwtis.foi.org/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ws:dodajAerodromPreuzimanje>\r
+         <!--Optional:-->\r
+         <icao>TONI</icao>\r
+      </ws:dodajAerodromPreuzimanje>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://ws.zadaca_3.tskobic.nwtis.foi.org/WsAerodromi/dodajAerodromPreuzimanjeRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="4605095d-c320-4e93-99aa-1af908d001be" isOneWay="false" action="" name="dajAerodromePreuzimanje" bindingOperationName="dajAerodromePreuzimanje" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="7b8522e7-6950-4039-8575-00fd360d3290" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9090/tskobic-zadaca_3_wa_1/aerodromi</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.zadaca_3.tskobic.nwtis.foi.org/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ws:dajAerodromePreuzimanje/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://ws.zadaca_3.tskobic.nwtis.foi.org/WsAerodromi/dajAerodromePreuzimanjeRequest"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="0b63e680-8f74-42b9-96bb-5df0c6f1d18d" wsaVersion="NONE" name="WsMeteoPortBinding" type="wsdl" bindingName="{http://ws.zadaca_3.tskobic.nwtis.foi.org/}WsMeteoPortBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:9090/tskobic-zadaca_3_wa_1/meteo?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:9090/tskobic-zadaca_3_wa_1/meteo?wsdl"><con:part><con:url>http://localhost:9090/tskobic-zadaca_3_wa_1/meteo?wsdl</con:url><con:content><![CDATA[<!--Published by JAX-WS RI (https://github.com/eclipse-ee4j/metro-jax-ws). RI's version is Eclipse Metro/3.0.3 (RELEASE-3.0.3-7a63cef; 2021-10-13T11:40:48+0000) JAXWS-RI/3.0.2 JAXWS-API/3.0.1 JAXB-RI/3.0.2 JAXB-API/3.0.1 git-revision#7a63cef.-->
 <!--Generated by JAX-WS RI (https://github.com/eclipse-ee4j/metro-jax-ws). RI's version is Eclipse Metro/3.0.3 (RELEASE-3.0.3-7a63cef; 2021-10-13T11:40:48+0000) JAXWS-RI/3.0.2 JAXWS-API/3.0.1 JAXB-RI/3.0.2 JAXB-API/3.0.1 git-revision#7a63cef.-->
 <definitions targetNamespace="http://ws.zadaca_3.tskobic.nwtis.foi.org/" name="meteo" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://ws.zadaca_3.tskobic.nwtis.foi.org/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/">
   <types>
@@ -110,7 +283,7 @@
   <xs:element name="dajMeteoResponse" type="tns:dajMeteoResponse"/>
   <xs:complexType name="dajMeteo">
     <xs:sequence>
-      <xs:element name="arg0" type="xs:string" minOccurs="0"/>
+      <xs:element name="icao" type="xs:string" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="dajMeteoResponse">
@@ -160,7 +333,7 @@
    <soapenv:Body>
       <ws:dajSveAerodrome/>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://ws.zadaca_3.tskobic.nwtis.foi.org/WsAerodromi/dajSveAerodromeRequest"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:testSuite id="18f56dc4-e7a8-4e9a-9564-5f3b559eac38" name="WsMeteoPortBinding TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="fac6300b-fe0b-4902-a247-63ceaf42ff6e" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="dajMeteo TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="2c29d1d9-f256-41b1-8054-c22fc613c44a" name="dajMeteo"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>WsMeteoPortBinding</con:interface><con:operation>dajMeteo</con:operation><con:request name="dajMeteo" id="25116a0f-2ad6-4104-a72e-0764a06044d5"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9090/tskobic-zadaca_3_wa_1/meteo</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.zadaca_3.tskobic.nwtis.foi.org/">
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://ws.zadaca_3.tskobic.nwtis.foi.org/WsAerodromi/dajSveAerodromeRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:testSuite id="18f56dc4-e7a8-4e9a-9564-5f3b559eac38" name="WsMeteoPortBinding TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="fac6300b-fe0b-4902-a247-63ceaf42ff6e" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="dajMeteo TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="2c29d1d9-f256-41b1-8054-c22fc613c44a" name="dajMeteo"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>WsMeteoPortBinding</con:interface><con:operation>dajMeteo</con:operation><con:request name="dajMeteo" id="25116a0f-2ad6-4104-a72e-0764a06044d5"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9090/tskobic-zadaca_3_wa_1/meteo</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.zadaca_3.tskobic.nwtis.foi.org/">
    <soapenv:Header/>
    <soapenv:Body>
       <ws:dajMeteo>

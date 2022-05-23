@@ -4,3 +4,10 @@ keytool -import -alias OpenSkyNetwork -storepass changeit -keystore "/opt/glassf
 
 keytool -import -alias OpenWeatheMmap -storepass changeit -keystore "/opt/glassfish6/glassfish/domains/domain1/config/cacerts.jks" -file OpenWeatheMmap.cer
 
+
+
+keytool -delete -alias LocationIQ -storepass changeit -keystore "/opt/glassfish6/glassfish/domains/domain1/config/cacerts.jks" 
+
+keytool -delete -alias OpenSkyNetwork -storepass changeit -keystore "/opt/glassfish6/glassfish/domains/domain1/config/cacerts.jks" 
+
+keytool -delete -alias OpenWeatheMmap -storepass changeit -keystore "/opt/glassfish6/glassfish/domains/domain1/config/cacerts.jks" 
