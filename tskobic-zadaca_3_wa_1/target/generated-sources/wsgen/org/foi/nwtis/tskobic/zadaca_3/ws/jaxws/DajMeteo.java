@@ -12,25 +12,25 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlType(name = "dajMeteo", namespace = "http://ws.zadaca_3.tskobic.nwtis.foi.org/")
 public class DajMeteo {
 
-    @XmlElement(name = "arg0", namespace = "")
-    private String arg0;
+    @XmlElement(name = "icao", namespace = "")
+    private String icao;
 
     /**
      * 
      * @return
      *     returns String
      */
-    public String getArg0() {
-        return this.arg0;
+    public String getIcao() {
+        return this.icao;
     }
 
     /**
      * 
-     * @param arg0
-     *     the value for the arg0 property
+     * @param icao
+     *     the value for the icao property
      */
-    public void setArg0(String arg0) {
-        this.arg0 = arg0;
+    public void setIcao(String icao) {
+        this.icao = icao;
     }
 
 }

@@ -14,16 +14,16 @@ public class MeteoWs {
 
 	@WebServiceRef(wsdlLocation = "http://localhost:9090/tskobic-zadaca_3_wa_1/meteo?wsdl")
 	private Meteo service;
-	
+
 	private MeteoPodaci meteoPodaci = new MeteoPodaci();
-	private String icao = "LDZA";
+	static String icao;
 
 	public String getIcao() {
 		return icao;
 	}
 
 	public void setIcao(String icao) {
-		this.icao = icao;
+		MeteoWs.icao = icao;
 	}
 
 	public MeteoPodaci getMeteoPodaci() {

@@ -3,5 +3,7 @@ org\foi\nwtis\tskobic\zadaca_3\podaci\AerodromiDAO.class
 org\foi\nwtis\tskobic\zadaca_3\ws\WsAerodromi.class
 org\foi\nwtis\tskobic\zadaca_3\wsock\Info.class
 org\foi\nwtis\tskobic\zadaca_3\slusaci\SlusacAplikacije.class
+org\foi\nwtis\tskobic\zadaca_3\podaci\AerodromiPolasciDAO.class
 org\foi\nwtis\tskobic\zadaca_3\podaci\AerodromiPraceniDAO.class
+org\foi\nwtis\tskobic\zadaca_3\podaci\AerodromiDolasciDAO.class
 org\foi\nwtis\tskobic\zadaca_3\ws\WsMeteo.class

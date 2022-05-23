@@ -12,6 +12,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 import org.foi.nwtis.podaci.Aerodrom;
 import org.foi.nwtis.rest.podaci.Lokacija;
@@ -70,7 +71,7 @@ public class AerodromiPraceniDAO {
 	 * Dodaje aerodrom za praćenje.
 	 *
 	 * @param icao icao
-	 * @param pbp postavke baze podataka
+	 * @param pbp  postavke baze podataka
 	 * @return true, ako je uspješno dodavanje
 	 */
 	public boolean dodajAerodromZaPracenje(String icao, PostavkeBazaPodataka pbp) {
@@ -78,28 +79,52 @@ public class AerodromiPraceniDAO {
 		String bpkorisnik = pbp.getUserUsername();
 		String bplozinka = pbp.getUserPassword();
 		String upit = "INSERT INTO AERODROMI_PRACENI (ident, `stored`) VALUES(?, ?);";
+		
+		AerodromiDAO aerodromiDAO = new AerodromiDAO();
+		List<Aerodrom> aerodromi = aerodromiDAO.dohvatiSveAerodrome(pbp);
+		List<Aerodrom> praceniAerodromi = this.dohvatiPraceneAerodrome(pbp);
+		boolean pronadjenAero = false;
 
-		try {
-			Class.forName(pbp.getDriverDatabase(url));
-
-			try (Connection con = DriverManager.getConnection(url, bpkorisnik, bplozinka);
-					PreparedStatement s = con.prepareStatement(upit)) {
-				
-				Date datum = new Date();
-
-				s.setString(1, icao);
-				s.setTimestamp(2, new Timestamp(datum.getTime()));
-
-				int brojAzuriranja = s.executeUpdate();
-
-				return brojAzuriranja == 1;
-
-			} catch (Exception ex) {
-				Logger.getLogger(AerodromiPraceniDAO.class.getName()).log(Level.SEVERE, null, ex);
-			}
-		} catch (ClassNotFoundException ex) {
-			Logger.getLogger(AerodromiPraceniDAO.class.getName()).log(Level.SEVERE, null, ex);
+		List<Aerodrom> fAerodromi = aerodromi.stream().filter(x -> x.getIcao().equals(icao))
+				.collect(Collectors.toList());
+		if (!fAerodromi.isEmpty()) {
+			pronadjenAero = true;
 		}
+
+		boolean pronadjenPraceniAero = false;
+		if (pronadjenAero) {
+			List<Aerodrom> fPraceniAerodromi = praceniAerodromi.stream().filter(x -> x.getIcao().equals(icao))
+					.collect(Collectors.toList());
+			if (!fPraceniAerodromi.isEmpty()) {
+				pronadjenPraceniAero = true;
+			}
+
+			if (!pronadjenPraceniAero) {
+				try {
+					Class.forName(pbp.getDriverDatabase(url));
+
+					try (Connection con = DriverManager.getConnection(url, bpkorisnik, bplozinka);
+							PreparedStatement s = con.prepareStatement(upit)) {
+
+						Date datum = new Date();
+
+						s.setString(1, icao);
+						s.setTimestamp(2, new Timestamp(datum.getTime()));
+
+						int brojAzuriranja = s.executeUpdate();
+
+						return brojAzuriranja == 1;
+
+					} catch (Exception ex) {
+						Logger.getLogger(AerodromiPraceniDAO.class.getName()).log(Level.SEVERE, null, ex);
+					}
+				} catch (ClassNotFoundException ex) {
+					Logger.getLogger(AerodromiPraceniDAO.class.getName()).log(Level.SEVERE, null, ex);
+				}
+			}
+		}
+
 		return false;
 	}
+	
 }

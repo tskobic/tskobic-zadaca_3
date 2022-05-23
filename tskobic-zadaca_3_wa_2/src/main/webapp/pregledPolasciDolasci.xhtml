@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<title>Pregled polazaka s i dolazaka na jedan aerodrom na
+		određeni dan</title>
+	<h:outputStylesheet library="css" name="default.css" />
+</h:head>
+<h:body>
+	<h2>Pregled polazaka s i dolazaka na jedan aerodrom na određeni
+		dan</h2>
+	<h:link outcome="index.xhtml" value="Početak" />
+	<br />
+	<br />
+
+	<h:form id="f_polasciDolasci">
+        	ICAO: <h:inputText required="true" id="icao" value="#{aerodromiWs.icao}" />
+        	Datum: <h:inputText required="true" id="dan" value="#{aerodromiWs.dan}" />
+		<h:selectOneRadio required="true" value="#{aerodromiWs.odabir}">
+			<f:selectItem itemValue="Polasci" itemLabel="Polasci" />
+			<f:selectItem itemValue="Dolasci" itemLabel="Dolasci" />
+			<f:selectItem itemValue="Polasci i dolasci"
+				itemLabel="Polasci i Dolasci" />
+		</h:selectOneRadio>
+		<h:commandButton id="pregledLetova"
+			action="#{aerodromiWs.getAerodromLetovi}" value="Pregledaj" />
+	</h:form>
+	Temp: #{meteoWs.meteoPodaci.temperatureValue}
+	<br />
+	<br />
+
+	<h2>#{aerodromiWs.odabir}</h2>
+	<h:dataTable value="#{aerodromiWs.aerodromLetovi}" var="al"
+		styleClass="authorTable" headerClass="authorTableHeader"
+		rowClasses="authorTableOddRow,authorTableEvenRow">
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="ICAO24" />
+			</f:facet>
+			<h:outputText value="#{al.icao24}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="First seen" />
+			</f:facet>
+			<h:outputText value="#{al.firstSeen}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="Est departure airport" />
+			</f:facet>
+			<h:outputText value="#{al.estDepartureAirport}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="Last seen" />
+			</f:facet>
+			<h:outputText value="#{al.lastSeen}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="Est arrival airport" />
+			</f:facet>
+			<h:outputText value="#{al.estArrivalAirport}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="Callsign" />
+			</f:facet>
+			<h:outputText value="#{al.callsign}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="Est departure airport horiz distance" />
+			</f:facet>
+			<h:outputText value="#{al.estDepartureAirportHorizDistance}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="Est departure airport vert distance" />
+			</f:facet>
+			<h:outputText value="#{al.estDepartureAirportVertDistance}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="Est arrival airport horiz distance" />
+			</f:facet>
+			<h:outputText value="#{al.estArrivalAirportHorizDistance}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="Est arrival airport vert distance" />
+			</f:facet>
+			<h:outputText value="#{al.estArrivalAirportVertDistance}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="Departure airport candidates count" />
+			</f:facet>
+			<h:outputText value="#{al.departureAirportCandidatesCount}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="Arrival airport candidates count" />
+			</f:facet>
+			<h:outputText value="#{al.arrivalAirportCandidatesCount}" />
+		</h:column>
+	</h:dataTable>
+</h:body>
+</html>
