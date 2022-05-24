@@ -50,7 +50,7 @@ public class AerodromiPraceniDAO {
 					String icao = rs.getString("icao");
 					String koordinate[] = rs.getString("coordinates").split(", ");
 					Lokacija lokacija = new Lokacija();
-					lokacija.postavi(koordinate[0], koordinate[1]);
+					lokacija.postavi(koordinate[1], koordinate[0]);
 					String naziv = rs.getString("name");
 					Aerodrom a = new Aerodrom(icao, naziv, drzava, lokacija);
 

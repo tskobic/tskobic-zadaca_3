@@ -14,11 +14,14 @@ org\foi\nwtis\tskobic\ws\meteo\Meteo.class
 org\foi\nwtis\tskobic\zadaca_3\slusaci\SlusacAplikacije.class
 org\foi\nwtis\tskobic\ws\aerodromi\Aerodromi.class
 org\foi\nwtis\tskobic\zadaca_3\zrna\AerodromiWs.class
+org\foi\nwtis\tskobic\ws\aerodromi\DajNajbliziAerodrom.class
+org\foi\nwtis\tskobic\ws\aerodromi\DajNajbliziAerodromResponse.class
 org\foi\nwtis\tskobic\ws\aerodromi\DajAerodromePreuzimanje.class
 org\foi\nwtis\tskobic\ws\aerodromi\DajDolaske.class
 org\foi\nwtis\tskobic\ws\aerodromi\WsAerodromi.class
 org\foi\nwtis\tskobic\ws\meteo\WsMeteo.class
 org\foi\nwtis\tskobic\ws\meteo\MeteoPodaci.class
+org\foi\nwtis\tskobic\zadaca_3\zrna\Aplikacija.class
 org\foi\nwtis\tskobic\ws\aerodromi\DodajAerodromPreuzimanje.class
 org\foi\nwtis\tskobic\ws\meteo\DajMeteo.class
 org\foi\nwtis\tskobic\ws\aerodromi\DajSveAerodromeResponse.class

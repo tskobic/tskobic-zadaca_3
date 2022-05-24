@@ -28,6 +28,8 @@ public class ObjectFactory {
     private final static QName _DajAerodromePreuzimanjeResponse_QNAME = new QName("http://ws.zadaca_3.tskobic.nwtis.foi.org/", "dajAerodromePreuzimanjeResponse");
     private final static QName _DajDolaske_QNAME = new QName("http://ws.zadaca_3.tskobic.nwtis.foi.org/", "dajDolaske");
     private final static QName _DajDolaskeResponse_QNAME = new QName("http://ws.zadaca_3.tskobic.nwtis.foi.org/", "dajDolaskeResponse");
+    private final static QName _DajNajbliziAerodrom_QNAME = new QName("http://ws.zadaca_3.tskobic.nwtis.foi.org/", "dajNajbliziAerodrom");
+    private final static QName _DajNajbliziAerodromResponse_QNAME = new QName("http://ws.zadaca_3.tskobic.nwtis.foi.org/", "dajNajbliziAerodromResponse");
     private final static QName _DajPolaske_QNAME = new QName("http://ws.zadaca_3.tskobic.nwtis.foi.org/", "dajPolaske");
     private final static QName _DajPolaskeResponse_QNAME = new QName("http://ws.zadaca_3.tskobic.nwtis.foi.org/", "dajPolaskeResponse");
     private final static QName _DajSveAerodrome_QNAME = new QName("http://ws.zadaca_3.tskobic.nwtis.foi.org/", "dajSveAerodrome");
@@ -72,6 +74,22 @@ public class ObjectFactory {
      */
     public DajDolaskeResponse createDajDolaskeResponse() {
         return new DajDolaskeResponse();
+    }
+
+    /**
+     * Create an instance of {@link DajNajbliziAerodrom }
+     * 
+     */
+    public DajNajbliziAerodrom createDajNajbliziAerodrom() {
+        return new DajNajbliziAerodrom();
+    }
+
+    /**
+     * Create an instance of {@link DajNajbliziAerodromResponse }
+     * 
+     */
+    public DajNajbliziAerodromResponse createDajNajbliziAerodromResponse() {
+        return new DajNajbliziAerodromResponse();
     }
 
     /**
@@ -123,11 +141,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link AvionLeti }
+     * Create an instance of {@link Lokacija }
      * 
      */
-    public AvionLeti createAvionLeti() {
-        return new AvionLeti();
+    public Lokacija createLokacija() {
+        return new Lokacija();
     }
 
     /**
@@ -139,11 +157,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Lokacija }
+     * Create an instance of {@link AvionLeti }
      * 
      */
-    public Lokacija createLokacija() {
-        return new Lokacija();
+    public AvionLeti createAvionLeti() {
+        return new AvionLeti();
     }
 
     /**
@@ -196,6 +214,32 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://ws.zadaca_3.tskobic.nwtis.foi.org/", name = "dajDolaskeResponse")
     public JAXBElement<DajDolaskeResponse> createDajDolaskeResponse(DajDolaskeResponse value) {
         return new JAXBElement<DajDolaskeResponse>(_DajDolaskeResponse_QNAME, DajDolaskeResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link DajNajbliziAerodrom }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link DajNajbliziAerodrom }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://ws.zadaca_3.tskobic.nwtis.foi.org/", name = "dajNajbliziAerodrom")
+    public JAXBElement<DajNajbliziAerodrom> createDajNajbliziAerodrom(DajNajbliziAerodrom value) {
+        return new JAXBElement<DajNajbliziAerodrom>(_DajNajbliziAerodrom_QNAME, DajNajbliziAerodrom.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link DajNajbliziAerodromResponse }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link DajNajbliziAerodromResponse }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://ws.zadaca_3.tskobic.nwtis.foi.org/", name = "dajNajbliziAerodromResponse")
+    public JAXBElement<DajNajbliziAerodromResponse> createDajNajbliziAerodromResponse(DajNajbliziAerodromResponse value) {
+        return new JAXBElement<DajNajbliziAerodromResponse>(_DajNajbliziAerodromResponse_QNAME, DajNajbliziAerodromResponse.class, null, value);
     }
 
     /**

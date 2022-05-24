@@ -9,6 +9,7 @@ import org.foi.nwtis.tskobic.ws.aerodromi.Aerodromi;
 import org.foi.nwtis.tskobic.ws.aerodromi.AvionLeti;
 import org.foi.nwtis.tskobic.ws.aerodromi.WsAerodromi;
 
+import jakarta.annotation.PostConstruct;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Named;
 import jakarta.xml.ws.WebServiceRef;
@@ -19,21 +20,25 @@ public class AerodromiWs {
 
 	@WebServiceRef(wsdlLocation = "http://localhost:9090/tskobic-zadaca_3_wa_1/aerodromi?wsdl")
 	private Aerodromi service;
-	
-	private String icao;
+
+	public static String icao;
 	private String dan;
 	private String odabir;
 	private List<Aerodrom> aerodromi = new ArrayList<>();
 	private List<Aerodrom> praceniAerodromi = new ArrayList<>();
 	private List<AvionLeti> aerodromLetovi = new ArrayList<>();
-	
+
+	@PostConstruct
+	public void reset() {
+		icao = null;
+	}
+
 	public String getIcao() {
 		return icao;
 	}
 
 	public void setIcao(String icao) {
-		this.icao = icao;
-		MeteoWs.icao = icao;
+		AerodromiWs.icao = icao;
 	}
 
 	public String getDan() {
@@ -87,61 +92,61 @@ public class AerodromiWs {
 
 		return lAerodromi;
 	}
-	
+
 	public List<Aerodrom> dajAerodromePreuzimanje() {
 		service = new Aerodromi();
-		
+
 		WsAerodromi wsAerodromi = service.getWsAerodromiPort();
 		List<Aerodrom> lPraceniAerodromi = wsAerodromi.dajAerodromePreuzimanje();
-		
+
 		return lPraceniAerodromi;
 	}
-	
+
 	public boolean dodajAerodromPreuzimanje() {
 		service = new Aerodromi();
-		
+
 		WsAerodromi wsAerodromi = service.getWsAerodromiPort();
 		boolean status = wsAerodromi.dodajAerodromPreuzimanje(icao);
-		
+
 		return status;
 	}
-	
+
 	public List<AvionLeti> dajLetove() {
 		List<AvionLeti> aerodromLetovi = null;
-		
-		if(odabir == null) {
+
+		if (odabir == null) {
 			return null;
 		} else {
-			if(odabir.equals("Polasci")) {
+			if (odabir.equals("Polasci")) {
 				aerodromLetovi = dajPolaske();
-			} else if(odabir.equals("Dolasci")) {
+			} else if (odabir.equals("Dolasci")) {
 				aerodromLetovi = dajDolaske();
-			} else if(odabir.equals("Polasci i dolasci")) {
+			} else if (odabir.equals("Polasci i dolasci")) {
 				aerodromLetovi = dajPolaske();
 				aerodromLetovi.addAll(dajDolaske());
 				aerodromLetovi.sort(Comparator.comparingInt(AvionLeti::getFirstSeen));
-			}	
+			}
 		}
-		
+
 		return aerodromLetovi;
 	}
-	
+
 	public List<AvionLeti> dajPolaske() {
 		service = new Aerodromi();
-		
+
 		WsAerodromi wsAerodromi = service.getWsAerodromiPort();
 		List<AvionLeti> lAerodromPolasci = wsAerodromi.dajPolaske(icao, dan);
-		
+
 		return lAerodromPolasci;
 	}
-	
+
 	public List<AvionLeti> dajDolaske() {
 		service = new Aerodromi();
-		
+
 		WsAerodromi wsAerodromi = service.getWsAerodromiPort();
 		List<AvionLeti> lAerodromDolasci = wsAerodromi.dajDolaske(icao, dan);
-		
+
 		return lAerodromDolasci;
 	}
-	
+
 }

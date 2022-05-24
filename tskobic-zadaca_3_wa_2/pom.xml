@@ -33,7 +33,7 @@
 		<ServerEE.domainDir>${ServerEE.home}/glassfish/domains</ServerEE.domainDir>
 		<ServerEE.containerName>${ServerEE.glassfish.containerName}</ServerEE.containerName>
 		-->
-		
+
 		<ServerEE.glassfish.home>C:\\glassfish6\\</ServerEE.glassfish.home>
 		<ServerEE.glassfish.Web.home>C:\\glassfish6-web\\</ServerEE.glassfish.Web.home>
 		<ServerEE.glassfish.containerName>glassfish6x</ServerEE.glassfish.containerName>
@@ -44,7 +44,7 @@
 		<ServerEE.home>${ServerEE.glassfish.home}</ServerEE.home>
 		<ServerEE.domainDir>${ServerEE.home}\\glassfish\\domains</ServerEE.domainDir>
 		<ServerEE.containerName>${ServerEE.glassfish.containerName}</ServerEE.containerName>
-		
+
 	</properties>
 
 	<repositories>
@@ -94,7 +94,12 @@
 			<artifactId>NWTiS_REST_lib</artifactId>
 			<version>2.3.0</version>
 		</dependency>
-
+		<dependency>
+			<groupId>org.primefaces</groupId>
+			<artifactId>primefaces</artifactId>
+			<version>11.0.0</version>
+			<classifier>jakarta</classifier>
+		</dependency>
 	</dependencies>
 
 	<build>

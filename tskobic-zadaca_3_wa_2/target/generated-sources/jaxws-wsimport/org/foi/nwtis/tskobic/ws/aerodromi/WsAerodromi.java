@@ -32,6 +32,51 @@ public interface WsAerodromi {
      */
     @WebMethod
     @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "dajAerodromePreuzimanje", targetNamespace = "http://ws.zadaca_3.tskobic.nwtis.foi.org/", className = "org.foi.nwtis.tskobic.ws.aerodromi.DajAerodromePreuzimanje")
+    @ResponseWrapper(localName = "dajAerodromePreuzimanjeResponse", targetNamespace = "http://ws.zadaca_3.tskobic.nwtis.foi.org/", className = "org.foi.nwtis.tskobic.ws.aerodromi.DajAerodromePreuzimanjeResponse")
+    @Action(input = "http://ws.zadaca_3.tskobic.nwtis.foi.org/WsAerodromi/dajAerodromePreuzimanjeRequest", output = "http://ws.zadaca_3.tskobic.nwtis.foi.org/WsAerodromi/dajAerodromePreuzimanjeResponse")
+    public List<Aerodrom> dajAerodromePreuzimanje();
+
+    /**
+     * 
+     * @param vrsta
+     * @param lokacija
+     * @return
+     *     returns org.foi.nwtis.tskobic.ws.aerodromi.Aerodrom
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "dajNajbliziAerodrom", targetNamespace = "http://ws.zadaca_3.tskobic.nwtis.foi.org/", className = "org.foi.nwtis.tskobic.ws.aerodromi.DajNajbliziAerodrom")
+    @ResponseWrapper(localName = "dajNajbliziAerodromResponse", targetNamespace = "http://ws.zadaca_3.tskobic.nwtis.foi.org/", className = "org.foi.nwtis.tskobic.ws.aerodromi.DajNajbliziAerodromResponse")
+    @Action(input = "http://ws.zadaca_3.tskobic.nwtis.foi.org/WsAerodromi/dajNajbliziAerodromRequest", output = "http://ws.zadaca_3.tskobic.nwtis.foi.org/WsAerodromi/dajNajbliziAerodromResponse")
+    public Aerodrom dajNajbliziAerodrom(
+        @WebParam(name = "lokacija", targetNamespace = "")
+        Lokacija lokacija,
+        @WebParam(name = "vrsta", targetNamespace = "")
+        boolean vrsta);
+
+    /**
+     * 
+     * @param icao
+     * @return
+     *     returns boolean
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "dodajAerodromPreuzimanje", targetNamespace = "http://ws.zadaca_3.tskobic.nwtis.foi.org/", className = "org.foi.nwtis.tskobic.ws.aerodromi.DodajAerodromPreuzimanje")
+    @ResponseWrapper(localName = "dodajAerodromPreuzimanjeResponse", targetNamespace = "http://ws.zadaca_3.tskobic.nwtis.foi.org/", className = "org.foi.nwtis.tskobic.ws.aerodromi.DodajAerodromPreuzimanjeResponse")
+    @Action(input = "http://ws.zadaca_3.tskobic.nwtis.foi.org/WsAerodromi/dodajAerodromPreuzimanjeRequest", output = "http://ws.zadaca_3.tskobic.nwtis.foi.org/WsAerodromi/dodajAerodromPreuzimanjeResponse")
+    public boolean dodajAerodromPreuzimanje(
+        @WebParam(name = "icao", targetNamespace = "")
+        String icao);
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<org.foi.nwtis.tskobic.ws.aerodromi.Aerodrom>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
     @RequestWrapper(localName = "dajSveAerodrome", targetNamespace = "http://ws.zadaca_3.tskobic.nwtis.foi.org/", className = "org.foi.nwtis.tskobic.ws.aerodromi.DajSveAerodrome")
     @ResponseWrapper(localName = "dajSveAerodromeResponse", targetNamespace = "http://ws.zadaca_3.tskobic.nwtis.foi.org/", className = "org.foi.nwtis.tskobic.ws.aerodromi.DajSveAerodromeResponse")
     @Action(input = "http://ws.zadaca_3.tskobic.nwtis.foi.org/WsAerodromi/dajSveAerodromeRequest", output = "http://ws.zadaca_3.tskobic.nwtis.foi.org/WsAerodromi/dajSveAerodromeResponse")
@@ -72,32 +117,5 @@ public interface WsAerodromi {
         String icao,
         @WebParam(name = "dan", targetNamespace = "")
         String dan);
-
-    /**
-     * 
-     * @return
-     *     returns java.util.List<org.foi.nwtis.tskobic.ws.aerodromi.Aerodrom>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "dajAerodromePreuzimanje", targetNamespace = "http://ws.zadaca_3.tskobic.nwtis.foi.org/", className = "org.foi.nwtis.tskobic.ws.aerodromi.DajAerodromePreuzimanje")
-    @ResponseWrapper(localName = "dajAerodromePreuzimanjeResponse", targetNamespace = "http://ws.zadaca_3.tskobic.nwtis.foi.org/", className = "org.foi.nwtis.tskobic.ws.aerodromi.DajAerodromePreuzimanjeResponse")
-    @Action(input = "http://ws.zadaca_3.tskobic.nwtis.foi.org/WsAerodromi/dajAerodromePreuzimanjeRequest", output = "http://ws.zadaca_3.tskobic.nwtis.foi.org/WsAerodromi/dajAerodromePreuzimanjeResponse")
-    public List<Aerodrom> dajAerodromePreuzimanje();
-
-    /**
-     * 
-     * @param icao
-     * @return
-     *     returns boolean
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "dodajAerodromPreuzimanje", targetNamespace = "http://ws.zadaca_3.tskobic.nwtis.foi.org/", className = "org.foi.nwtis.tskobic.ws.aerodromi.DodajAerodromPreuzimanje")
-    @ResponseWrapper(localName = "dodajAerodromPreuzimanjeResponse", targetNamespace = "http://ws.zadaca_3.tskobic.nwtis.foi.org/", className = "org.foi.nwtis.tskobic.ws.aerodromi.DodajAerodromPreuzimanjeResponse")
-    @Action(input = "http://ws.zadaca_3.tskobic.nwtis.foi.org/WsAerodromi/dodajAerodromPreuzimanjeRequest", output = "http://ws.zadaca_3.tskobic.nwtis.foi.org/WsAerodromi/dodajAerodromPreuzimanjeResponse")
-    public boolean dodajAerodromPreuzimanje(
-        @WebParam(name = "icao", targetNamespace = "")
-        String icao);
 
 }

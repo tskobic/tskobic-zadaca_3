@@ -2,7 +2,7 @@ cd /opt/glassfish6/bin
 
 # za kreiranje JDBC bazena veza NWTiS_DZ3_Pool
 
-./asadmin --host localhost --port 4949 create-jdbc-connection-pool --datasourceclassname org.hsqldb.jdbc.JDBCDataSource --restype javax.sql.DataSource --property PortNumber=9001:Password=nwtis#g1:User=nwtis_g1:serverName=localhost:DatabaseName=nwtis_g1:url="jdbc\:hsqldb\:hsql\://localhost\:9001/nwtis_g1" NWTiS_DZ3_Pool
+./asadmin --host localhost --port 4949 create-jdbc-connection-pool --datasourceclassname com.mysql.cj.jdbc.MysqlDataSource --restype javax.sql.DataSource --property PortNumber=3306:Password=nwtis#g1:User=nwtis_g1:serverName=localhost:databaseName=nwtis_g1:useSSL=false:serverTimezone=UTC:allowPublicKeyRetrieval=true NWTiS_DZ3_Pool
 
 # za kreiranje JDBC resursa jdbc/NWTiS_DZ3
 

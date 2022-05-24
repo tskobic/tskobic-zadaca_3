@@ -1,10 +1,10 @@
 package org.foi.nwtis.tskobic.zadaca_3.ws;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.foi.nwtis.podaci.Aerodrom;
 import org.foi.nwtis.rest.podaci.AvionLeti;
+import org.foi.nwtis.rest.podaci.Lokacija;
 import org.foi.nwtis.tskobic.vjezba_06.konfiguracije.bazaPodataka.PostavkeBazaPodataka;
 import org.foi.nwtis.tskobic.zadaca_3.podaci.AerodromiDAO;
 import org.foi.nwtis.tskobic.zadaca_3.podaci.AerodromiDolasciDAO;
@@ -16,7 +16,6 @@ import jakarta.jws.WebMethod;
 import jakarta.jws.WebParam;
 import jakarta.jws.WebService;
 import jakarta.servlet.ServletContext;
-import jakarta.ws.rs.core.Response;
 import jakarta.xml.ws.WebServiceContext;
 import jakarta.xml.ws.handler.MessageContext;
 
@@ -78,6 +77,55 @@ public class WsAerodromi {
 		aerodromDolasci = aerodromiDolasciDAO.dohvatiDolaskeNaDan(icao, dan, konfig);
 
 		return aerodromDolasci;
+	}
+
+	@WebMethod
+	public Aerodrom dajNajbliziAerodrom(@WebParam(name = "lokacija") Lokacija lokacija,
+			@WebParam(name = "vrsta") boolean vrsta) {
+		PostavkeBazaPodataka konfig = dajPBP();
+		List<Aerodrom> aerodromi = null;
+
+		if (vrsta) {
+			AerodromiPraceniDAO aerodromiPraceniDAO = new AerodromiPraceniDAO();
+			aerodromi = aerodromiPraceniDAO.dohvatiPraceneAerodrome(konfig);
+		} else {
+			AerodromiDAO aerodromiDAO = new AerodromiDAO();
+			aerodromi = aerodromiDAO.dohvatiSveAerodrome(konfig);
+		}
+
+		float minUdaljenost = 0;
+		boolean prvi = true;
+		Aerodrom najbliziAerodrom = null;
+		for (Aerodrom a : aerodromi) {
+			float udaljenost = udaljenost(Float.parseFloat(lokacija.getLatitude()),
+					Float.parseFloat(lokacija.getLongitude()), Float.parseFloat(a.getLokacija().getLatitude()),
+					Float.parseFloat(a.getLokacija().getLongitude()));
+			if (prvi) {
+				prvi = false;
+				minUdaljenost = udaljenost;
+				najbliziAerodrom = a;
+			} else {
+				if (udaljenost < minUdaljenost) {
+					minUdaljenost = udaljenost;
+					najbliziAerodrom = a;
+				}
+			}
+		}
+
+		return najbliziAerodrom;
+	}
+
+	private float udaljenost(float gs1, float gd1, float gs2, float gd2) {
+		double polumjerZemlje = 6371000;
+		double dGs = Math.toRadians(gs2 - gs1);
+		double dGd = Math.toRadians(gd2 - gd1);
+		double a = Math.sin(dGs / 2) * Math.sin(dGs / 2)
+				+ Math.cos(Math.toRadians(gs1)) * Math.cos(Math.toRadians(gs2)) * Math.sin(dGd / 2) * Math.sin(dGd / 2);
+		double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+		float udalj = (float) (polumjerZemlje * c);
+		udalj = udalj / 1000;
+
+		return udalj;
 	}
 
 	private PostavkeBazaPodataka dajPBP() {
