@@ -1,11 +1,15 @@
 package org.foi.nwtis.tskobic.zadaca_3.dretve;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
+
+import org.foi.nwtis.podaci.Aerodrom;
 import org.foi.nwtis.tskobic.vjezba_06.konfiguracije.bazaPodataka.PostavkeBazaPodataka;
+import org.foi.nwtis.tskobic.zadaca_3.podaci.AerodromiPraceniDAO;
 import org.foi.nwtis.tskobic.zadaca_3.wsock.Info;
 
-import jakarta.inject.Inject;
 import jakarta.servlet.ServletContext;
 
 public class Osvjezivac extends Thread {
@@ -13,14 +17,13 @@ public class Osvjezivac extends Thread {
 	boolean kraj = false;
 	int vrijemeSpavanja = 0;
 	ServletContext context;
-	PostavkeBazaPodataka konfig;
-	
-	@Inject
-	static Info info;
+	public static PostavkeBazaPodataka konfig;
+	AerodromiPraceniDAO aerodromiPraceniDAO;
 
 	public Osvjezivac(ServletContext context) {
 		this.context = context;
-		this.konfig = (PostavkeBazaPodataka) context.getAttribute("Postavke");
+		Osvjezivac.konfig = (PostavkeBazaPodataka) context.getAttribute("Postavke");
+		this.aerodromiPraceniDAO = new AerodromiPraceniDAO();
 	}
 
 	@Override
@@ -33,8 +36,9 @@ public class Osvjezivac extends Thread {
 	@Override
 	public void run() {
 		while (!kraj) {
-			String vrijeme = new Date().toString();
-			int brojAerodroma = 7;
+			String vrijeme = trenutnoVrijeme("dd.MM.yyyy HH:mm:ss");
+			List<Aerodrom> praceniAerodromi = aerodromiPraceniDAO.dohvatiPraceneAerodrome(konfig);
+			int brojAerodroma = praceniAerodromi.size();
 
 			Info.posaljiPoruku(vrijeme + ", " + brojAerodroma);
 
@@ -52,4 +56,11 @@ public class Osvjezivac extends Thread {
 		super.interrupt();
 	}
 
+	
+	public String trenutnoVrijeme(String format) {
+		SimpleDateFormat sdf = new SimpleDateFormat(format);
+		String datum = sdf.format(new Date());
+
+		return datum;
+	}
 }

@@ -1,8 +1,16 @@
 package org.foi.nwtis.tskobic.zadaca_3.wsock;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+
+import org.foi.nwtis.podaci.Aerodrom;
+import org.foi.nwtis.tskobic.vjezba_06.konfiguracije.bazaPodataka.PostavkeBazaPodataka;
+import org.foi.nwtis.tskobic.zadaca_3.dretve.Osvjezivac;
+import org.foi.nwtis.tskobic.zadaca_3.podaci.AerodromiPraceniDAO;
 
 import jakarta.websocket.CloseReason;
 import jakarta.websocket.EndpointConfig;
@@ -15,6 +23,7 @@ import jakarta.websocket.server.ServerEndpoint;
 
 @ServerEndpoint("/info")
 public class Info {
+	
 	static Set<Session> sesije = new HashSet<>();
 	
 	static public void posaljiPoruku(String poruka) {
@@ -43,11 +52,28 @@ public class Info {
 
 	@OnMessage
 	public void stiglaPoruka(Session sesija, String poruka) {
+		if(poruka.equals("info")) {
+			PostavkeBazaPodataka konfig = Osvjezivac.konfig;
+			AerodromiPraceniDAO aerodromiPraceniDAO = new AerodromiPraceniDAO();
+			
+			String vrijeme = trenutnoVrijeme("dd.MM.yyyy HH:mm:ss");
+			List<Aerodrom> praceniAerodromi = aerodromiPraceniDAO.dohvatiPraceneAerodrome(konfig);
+			int brojAerodroma = praceniAerodromi.size();
+			
+			posaljiPoruku(vrijeme + ", " + brojAerodroma);
+		}
 		System.out.println("Veza: " + sesija.getId() + " Poruka: " + poruka);
 	}
 
 	@OnError
 	public void pogreska(Session sesija, Throwable iznimka) {
 		System.out.println("Veza: " + sesija.getId() + " Pogreška: " + iznimka.getMessage());
+	}
+	
+	public String trenutnoVrijeme(String format) {
+		SimpleDateFormat sdf = new SimpleDateFormat(format);
+		String datum = sdf.format(new Date());
+
+		return datum;
 	}
 }

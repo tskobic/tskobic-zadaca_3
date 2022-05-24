@@ -16,18 +16,25 @@
 	<br />
 
 	<h:form id="f_polasciDolasci">
-        	ICAO: <h:inputText required="true" id="icao" value="#{aerodromiWs.icao}" />
-        	Datum: <h:inputText required="true" id="dan" value="#{aerodromiWs.dan}" />
+        	ICAO: <h:inputText required="true" id="icao"
+			value="#{meteoWs.icao}" />
+        	Datum: <h:inputText required="true" id="dan"
+			value="#{aerodromiWs.dan}" />
 		<h:selectOneRadio required="true" value="#{aerodromiWs.odabir}">
 			<f:selectItem itemValue="Polasci" itemLabel="Polasci" />
 			<f:selectItem itemValue="Dolasci" itemLabel="Dolasci" />
 			<f:selectItem itemValue="Polasci i dolasci"
-				itemLabel="Polasci i Dolasci" />
+				itemLabel="Polasci i dolasci" />
 		</h:selectOneRadio>
 		<h:commandButton id="pregledLetova"
 			action="#{aerodromiWs.getAerodromLetovi}" value="Pregledaj" />
 	</h:form>
-	Temp: #{meteoWs.meteoPodaci.temperatureValue}
+	ICAO: ${meteoWs.icao} <br />
+	Temperatura: ${meteoWs.meteoPodaci.temperatureValue} ${meteoWs.meteoPodaci.temperatureUnit} <br />
+	Vlaga:  ${meteoWs.meteoPodaci.humidityValue} ${meteoWs.meteoPodaci.humidityUnit} <br />
+	Tlak: ${meteoWs.meteoPodaci.pressureValue} ${meteoWs.meteoPodaci.pressureUnit} <br />
+	Oborine: ${meteoWs.meteoPodaci.precipitationValue} ${meteoWs.meteoPodaci.precipitationUnit} <br />
+	Vjetar: ${meteoWs.meteoPodaci.windDirectionName} ${meteoWs.meteoPodaci.windSpeedValue} ${meteoWs.meteoPodaci.windSpeedName} <br />
 	<br />
 	<br />
 

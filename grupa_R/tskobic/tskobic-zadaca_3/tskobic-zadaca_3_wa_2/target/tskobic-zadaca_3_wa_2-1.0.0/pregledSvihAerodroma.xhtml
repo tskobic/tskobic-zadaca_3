@@ -1,38 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:f="http://java.sun.com/jsf/core"    
-      xmlns:h="http://java.sun.com/jsf/html">
-    <h:head>
-        <title>Pregled svih aerodroma</title>
-        <h:outputStylesheet library="css" name="default.css"  /> 
-    </h:head>
-    <h:body>
-        <h2>Pregled svih aerodroma</h2>
-        <h:link outcome="index.xhtml" value="Početak"/><br/><br/>
-        <h:dataTable value="#{aerodromiWs.aerodromi}" var="a"
-                     styleClass="authorTable"
-                     headerClass="authorTableHeader"
-                     rowClasses="authorTableOddRow,authorTableEvenRow">
-            <h:column>
-                <f:facet name="header">
-                    <h:outputText value="ICAO" />
-                </f:facet>
-                <h:outputText value="#{a.icao}" />
-            </h:column>  
-            <h:column>
-                <f:facet name="header">
-                    <h:outputText value="Naziv" />
-                </f:facet>
-                <h:outputText value="#{a.naziv}" />
-            </h:column>  
-            <h:column>
-                <f:facet name="header">
-                    <h:outputText value="Država" />
-                </f:facet>
-                <h:outputText value="#{a.drzava}" />
-            </h:column>  
-        </h:dataTable>
-        <br />
-    </h:body>
-</html> 
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Pregled svih aerodroma</title>
+	<h:outputStylesheet library="css" name="default.css" />
+</h:head>
+<h:body>
+
+	<h2>Pregled svih aerodroma</h2>
+	<h:link outcome="index.xhtml" value="Početak"/><br/><br/>
+	<p:dataTable var="a" value="#{aerodromiWs.aerodromi}"
+		rows="#{aplikacija.brojRedova}" paginator="true"
+		paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+		currentPageReportTemplate="{startRecord}-{endRecord} od {totalRecords} zapisa"
+		rowsPerPageTemplate="5,10,15,{ShowAll|'Sve'}">
+
+		<p:column headerText="ICAO">
+			<h:outputText value="#{a.icao}" />
+		</p:column>
+
+		<p:column headerText="Naziv">
+			<h:outputText value="#{a.naziv}" />
+		</p:column>
+
+		<p:column headerText="Država">
+			<h:outputText value="#{a.drzava}" />
+		</p:column>
+
+	</p:dataTable>
+	<br />
+</h:body>
+</html>

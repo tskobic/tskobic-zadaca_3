@@ -16,14 +16,15 @@ public class MeteoWs {
 	private Meteo service;
 
 	private MeteoPodaci meteoPodaci = new MeteoPodaci();
-	static String icao;
+	String icao;
 
 	public String getIcao() {
 		return icao;
 	}
 
 	public void setIcao(String icao) {
-		MeteoWs.icao = icao;
+		this.icao = icao;
+		AerodromiWs.icao = icao;
 	}
 
 	public MeteoPodaci getMeteoPodaci() {
@@ -38,9 +39,14 @@ public class MeteoWs {
 	public MeteoPodaci dajMeteo() {
 		service = new Meteo();
 
-		WsMeteo wsMeteo = service.getWsMeteoPort();
-		MeteoPodaci lMeteoPodaci = wsMeteo.dajMeteo(icao);
+		if (icao != null) {
+			WsMeteo wsMeteo = service.getWsMeteoPort();
+			MeteoPodaci lMeteoPodaci = wsMeteo.dajMeteo(icao);
 
-		return lMeteoPodaci;
+			return lMeteoPodaci;
+		}
+
+		return null;
 	}
+
 }
