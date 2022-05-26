@@ -63,6 +63,13 @@ public class AerodromiDAO {
 		return null;
 	}
 
+	/**
+	 * Dohvaća aerodrom za proslijeđeni ICAO aerodroma.
+	 *
+	 * @param unos icao aerodroma
+	 * @param pbp postavke baze podataka
+	 * @return the aerodrom
+	 */
 	public Aerodrom dohvatiAerodrom(String unos, PostavkeBazaPodataka pbp) {
 		String url = pbp.getServerDatabase() + pbp.getUserDatabase();
 		String bpkorisnik = pbp.getUserUsername();
