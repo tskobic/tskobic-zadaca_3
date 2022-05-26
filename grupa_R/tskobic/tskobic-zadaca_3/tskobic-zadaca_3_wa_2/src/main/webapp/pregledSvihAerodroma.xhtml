@@ -11,12 +11,14 @@
 <h:body>
 
 	<h2>Pregled svih aerodroma</h2>
-	<h:link outcome="index.xhtml" value="Početak"/><br/><br/>
+	<h:link outcome="index.xhtml" value="Početak" />
+	<br />
+	<br />
 	<p:dataTable var="a" value="#{aerodromiWs.aerodromi}"
-		rows="#{aplikacija.brojRedova}" paginator="true"
+		rows="#{paginacija.brojRedova}" paginator="true"
 		paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
 		currentPageReportTemplate="{startRecord}-{endRecord} od {totalRecords} zapisa"
-		rowsPerPageTemplate="5,10,15,{ShowAll|'Sve'}">
+		rowsPerPageTemplate="5,10,15,{ShowAll|'Sve'} ">
 
 		<p:column headerText="ICAO">
 			<h:outputText value="#{a.icao}" />

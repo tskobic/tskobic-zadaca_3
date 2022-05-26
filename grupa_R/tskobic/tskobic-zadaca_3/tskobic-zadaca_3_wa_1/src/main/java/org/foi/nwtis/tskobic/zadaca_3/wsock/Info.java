@@ -26,7 +26,7 @@ public class Info {
 	
 	static Set<Session> sesije = new HashSet<>();
 	
-	static public void posaljiPoruku(String poruka) {
+	static public void informiraj(String poruka) {
 		for(Session sesija: sesije) {
 			if(sesija.isOpen()) {
 				try {
@@ -60,7 +60,7 @@ public class Info {
 			List<Aerodrom> praceniAerodromi = aerodromiPraceniDAO.dohvatiPraceneAerodrome(konfig);
 			int brojAerodroma = praceniAerodromi.size();
 			
-			posaljiPoruku(vrijeme + ", " + brojAerodroma);
+			informiraj(vrijeme + ", " + brojAerodroma);
 		}
 		System.out.println("Veza: " + sesija.getId() + " Poruka: " + poruka);
 	}

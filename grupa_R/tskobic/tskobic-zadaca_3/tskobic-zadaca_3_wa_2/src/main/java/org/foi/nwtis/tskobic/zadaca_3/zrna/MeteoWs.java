@@ -16,7 +16,7 @@ public class MeteoWs {
 	private Meteo service;
 
 	private MeteoPodaci meteoPodaci = new MeteoPodaci();
-	String icao;
+	private String icao;
 
 	public String getIcao() {
 		return icao;
