@@ -3,7 +3,10 @@ package org.foi.nwtis.tskobic.zadaca_3.slusaci;
 import org.foi.nwtis.tskobic.vjezba_03.konfiguracije.NeispravnaKonfiguracija;
 import org.foi.nwtis.tskobic.vjezba_06.konfiguracije.bazaPodataka.KonfiguracijaBP;
 import org.foi.nwtis.tskobic.vjezba_06.konfiguracije.bazaPodataka.PostavkeBazaPodataka;
+import org.foi.nwtis.tskobic.zadaca_3.zrna.Eager;
 
+import jakarta.enterprise.inject.spi.CDI;
+import jakarta.enterprise.util.AnnotationLiteral;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletContextEvent;
 import jakarta.servlet.ServletContextListener;
@@ -16,14 +19,20 @@ import jakarta.servlet.annotation.WebListener;
 @WebListener
 public class SlusacAplikacije implements ServletContextListener {
 	
+    private static final AnnotationLiteral<Eager> EAGER_ANNOTATION = new AnnotationLiteral<Eager>() {
+        private static final long serialVersionUID = 1L;
+    };
+	
     /**
      * Default constructor. 
      */
     public SlusacAplikacije() {
     }
-
+    
+    
 	@Override
 	public void contextInitialized(ServletContextEvent sce) {
+
 		ServletContext context = sce.getServletContext();
 		String nazivDatoteke = context.getInitParameter("konfiguracija");
 		KonfiguracijaBP konfig = null;
@@ -37,7 +46,8 @@ public class SlusacAplikacije implements ServletContextListener {
 			e1.printStackTrace();
 			return;
 		}
-
+		
+		CDI.current().select(EAGER_ANNOTATION).forEach(bean -> bean.toString());
 		ServletContextListener.super.contextInitialized(sce);
 	}
 	

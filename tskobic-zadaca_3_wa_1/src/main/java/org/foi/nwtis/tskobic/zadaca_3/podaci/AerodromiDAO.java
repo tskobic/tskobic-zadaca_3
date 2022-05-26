@@ -67,7 +67,7 @@ public class AerodromiDAO {
 		String url = pbp.getServerDatabase() + pbp.getUserDatabase();
 		String bpkorisnik = pbp.getUserUsername();
 		String bplozinka = pbp.getUserPassword();
-		String upit = "SELECT iso_country AS country, ident AS icao, coordinates, name FROM airports where ident = ?;";
+		String upit = "SELECT iso_country AS country, ident AS icao, coordinates, name FROM airports WHERE ident = ?;";
 
 		try {
 			Class.forName(pbp.getDriverDatabase(url));

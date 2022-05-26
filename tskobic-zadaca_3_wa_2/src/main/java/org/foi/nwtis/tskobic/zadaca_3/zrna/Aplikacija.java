@@ -4,35 +4,22 @@ import org.foi.nwtis.tskobic.vjezba_06.konfiguracije.bazaPodataka.PostavkeBazaPo
 
 import jakarta.annotation.PostConstruct;
 import jakarta.enterprise.context.ApplicationScoped;
-import jakarta.faces.annotation.FacesConfig;
-import jakarta.faces.context.FacesContext;
 import jakarta.inject.Inject;
-import jakarta.inject.Named;
+import jakarta.servlet.ServletContext;
 
-@FacesConfig
+@Eager
 @ApplicationScoped
-@Named("aplikacija")
 public class Aplikacija {
-
+	
 	@Inject
-	protected FacesContext facesContext;
+	protected ServletContext context;
 
 	PostavkeBazaPodataka konfig;
-	String brojRedova;
-
-	@PostConstruct
-	void init() {
-		konfig = (PostavkeBazaPodataka) FacesContext.getCurrentInstance().getExternalContext().getApplicationMap()
-				.get("Postavke");
-		brojRedova = konfig.dajPostavku("stranica.brojRedova");
-	}
-
-	public String getBrojRedova() {
-		return brojRedova;
-	}
-
-	public void setBrojRedova(String brojRedova) {
-		this.brojRedova = brojRedova;
-	}
+	static String apikey;
 	
+    @PostConstruct
+    public void init() {
+		konfig = (PostavkeBazaPodataka) context.getAttribute("Postavke");
+		apikey = konfig.dajPostavku("LocationIQ.token");
+    }
 }

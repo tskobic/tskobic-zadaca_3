@@ -40,7 +40,7 @@ public class Osvjezivac extends Thread {
 			List<Aerodrom> praceniAerodromi = aerodromiPraceniDAO.dohvatiPraceneAerodrome(konfig);
 			int brojAerodroma = praceniAerodromi.size();
 
-			Info.posaljiPoruku(vrijeme + ", " + brojAerodroma);
+			Info.informiraj(vrijeme + ", " + brojAerodroma);
 
 			try {
 				Thread.sleep(vrijemeSpavanja);
