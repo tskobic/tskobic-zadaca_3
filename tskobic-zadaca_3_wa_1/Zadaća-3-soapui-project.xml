@@ -7,6 +7,24 @@
       <xsd:import namespace="http://ws.zadaca_3.tskobic.nwtis.foi.org/" schemaLocation="http://localhost:9090/tskobic-zadaca_3_wa_1/aerodromi?xsd=1"/>
     </xsd:schema>
   </types>
+  <message name="dajNajbliziAerodrom">
+    <part name="parameters" element="tns:dajNajbliziAerodrom"/>
+  </message>
+  <message name="dajNajbliziAerodromResponse">
+    <part name="parameters" element="tns:dajNajbliziAerodromResponse"/>
+  </message>
+  <message name="dodajAerodromPreuzimanje">
+    <part name="parameters" element="tns:dodajAerodromPreuzimanje"/>
+  </message>
+  <message name="dodajAerodromPreuzimanjeResponse">
+    <part name="parameters" element="tns:dodajAerodromPreuzimanjeResponse"/>
+  </message>
+  <message name="dajAerodromePreuzimanje">
+    <part name="parameters" element="tns:dajAerodromePreuzimanje"/>
+  </message>
+  <message name="dajAerodromePreuzimanjeResponse">
+    <part name="parameters" element="tns:dajAerodromePreuzimanjeResponse"/>
+  </message>
   <message name="dajPolaske">
     <part name="parameters" element="tns:dajPolaske"/>
   </message>
@@ -25,25 +43,19 @@
   <message name="dajDolaskeResponse">
     <part name="parameters" element="tns:dajDolaskeResponse"/>
   </message>
-  <message name="dajNajbliziAerodrom">
-    <part name="parameters" element="tns:dajNajbliziAerodrom"/>
-  </message>
-  <message name="dajNajbliziAerodromResponse">
-    <part name="parameters" element="tns:dajNajbliziAerodromResponse"/>
-  </message>
-  <message name="dajAerodromePreuzimanje">
-    <part name="parameters" element="tns:dajAerodromePreuzimanje"/>
-  </message>
-  <message name="dajAerodromePreuzimanjeResponse">
-    <part name="parameters" element="tns:dajAerodromePreuzimanjeResponse"/>
-  </message>
-  <message name="dodajAerodromPreuzimanje">
-    <part name="parameters" element="tns:dodajAerodromPreuzimanje"/>
-  </message>
-  <message name="dodajAerodromPreuzimanjeResponse">
-    <part name="parameters" element="tns:dodajAerodromPreuzimanjeResponse"/>
-  </message>
   <portType name="WsAerodromi">
+    <operation name="dajNajbliziAerodrom">
+      <input wsam:Action="http://ws.zadaca_3.tskobic.nwtis.foi.org/WsAerodromi/dajNajbliziAerodromRequest" message="tns:dajNajbliziAerodrom"/>
+      <output wsam:Action="http://ws.zadaca_3.tskobic.nwtis.foi.org/WsAerodromi/dajNajbliziAerodromResponse" message="tns:dajNajbliziAerodromResponse"/>
+    </operation>
+    <operation name="dodajAerodromPreuzimanje">
+      <input wsam:Action="http://ws.zadaca_3.tskobic.nwtis.foi.org/WsAerodromi/dodajAerodromPreuzimanjeRequest" message="tns:dodajAerodromPreuzimanje"/>
+      <output wsam:Action="http://ws.zadaca_3.tskobic.nwtis.foi.org/WsAerodromi/dodajAerodromPreuzimanjeResponse" message="tns:dodajAerodromPreuzimanjeResponse"/>
+    </operation>
+    <operation name="dajAerodromePreuzimanje">
+      <input wsam:Action="http://ws.zadaca_3.tskobic.nwtis.foi.org/WsAerodromi/dajAerodromePreuzimanjeRequest" message="tns:dajAerodromePreuzimanje"/>
+      <output wsam:Action="http://ws.zadaca_3.tskobic.nwtis.foi.org/WsAerodromi/dajAerodromePreuzimanjeResponse" message="tns:dajAerodromePreuzimanjeResponse"/>
+    </operation>
     <operation name="dajPolaske">
       <input wsam:Action="http://ws.zadaca_3.tskobic.nwtis.foi.org/WsAerodromi/dajPolaskeRequest" message="tns:dajPolaske"/>
       <output wsam:Action="http://ws.zadaca_3.tskobic.nwtis.foi.org/WsAerodromi/dajPolaskeResponse" message="tns:dajPolaskeResponse"/>
@@ -56,21 +68,36 @@
       <input wsam:Action="http://ws.zadaca_3.tskobic.nwtis.foi.org/WsAerodromi/dajDolaskeRequest" message="tns:dajDolaske"/>
       <output wsam:Action="http://ws.zadaca_3.tskobic.nwtis.foi.org/WsAerodromi/dajDolaskeResponse" message="tns:dajDolaskeResponse"/>
     </operation>
-    <operation name="dajNajbliziAerodrom">
-      <input wsam:Action="http://ws.zadaca_3.tskobic.nwtis.foi.org/WsAerodromi/dajNajbliziAerodromRequest" message="tns:dajNajbliziAerodrom"/>
-      <output wsam:Action="http://ws.zadaca_3.tskobic.nwtis.foi.org/WsAerodromi/dajNajbliziAerodromResponse" message="tns:dajNajbliziAerodromResponse"/>
-    </operation>
-    <operation name="dajAerodromePreuzimanje">
-      <input wsam:Action="http://ws.zadaca_3.tskobic.nwtis.foi.org/WsAerodromi/dajAerodromePreuzimanjeRequest" message="tns:dajAerodromePreuzimanje"/>
-      <output wsam:Action="http://ws.zadaca_3.tskobic.nwtis.foi.org/WsAerodromi/dajAerodromePreuzimanjeResponse" message="tns:dajAerodromePreuzimanjeResponse"/>
-    </operation>
-    <operation name="dodajAerodromPreuzimanje">
-      <input wsam:Action="http://ws.zadaca_3.tskobic.nwtis.foi.org/WsAerodromi/dodajAerodromPreuzimanjeRequest" message="tns:dodajAerodromPreuzimanje"/>
-      <output wsam:Action="http://ws.zadaca_3.tskobic.nwtis.foi.org/WsAerodromi/dodajAerodromPreuzimanjeResponse" message="tns:dodajAerodromPreuzimanjeResponse"/>
-    </operation>
   </portType>
   <binding name="WsAerodromiPortBinding" type="tns:WsAerodromi">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <operation name="dajNajbliziAerodrom">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="dodajAerodromPreuzimanje">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="dajAerodromePreuzimanje">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
     <operation name="dajPolaske">
       <soap:operation soapAction=""/>
       <input>
@@ -90,33 +117,6 @@
       </output>
     </operation>
     <operation name="dajDolaske">
-      <soap:operation soapAction=""/>
-      <input>
-        <soap:body use="literal"/>
-      </input>
-      <output>
-        <soap:body use="literal"/>
-      </output>
-    </operation>
-    <operation name="dajNajbliziAerodrom">
-      <soap:operation soapAction=""/>
-      <input>
-        <soap:body use="literal"/>
-      </input>
-      <output>
-        <soap:body use="literal"/>
-      </output>
-    </operation>
-    <operation name="dajAerodromePreuzimanje">
-      <soap:operation soapAction=""/>
-      <input>
-        <soap:body use="literal"/>
-      </input>
-      <output>
-        <soap:body use="literal"/>
-      </output>
-    </operation>
-    <operation name="dodajAerodromPreuzimanje">
       <soap:operation soapAction=""/>
       <input>
         <soap:body use="literal"/>
