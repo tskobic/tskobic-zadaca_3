@@ -1,0 +1,14 @@
+#NWTiS 2022.
+#Thu May 26 16:34:33 CEST 2022
+jdbc.derby=org.apache.derby.jdbc.ClientDriver
+OpenWeatherMap.apikey=a5dccbbaedf27ac79ddb41b0e20e4119
+ciklus.spavanje=300
+user.username=nwtis_g1
+jdbc.hsqldb.hsql=org.hsqldb.jdbcDriver
+user.password=nwtis\#g1
+user.database=nwtis_g1?useSSL\=false&serverTimezone\=UTC&allowPublicKeyRetrieval\=true
+server.database=jdbc\:mysql\://localhost\:3306/
+admin.password=nwtis_foi
+admin.database=nwtis_g1
+jdbc.mysql=com.mysql.cj.jdbc.Driver
+admin.username=nwtis_admin

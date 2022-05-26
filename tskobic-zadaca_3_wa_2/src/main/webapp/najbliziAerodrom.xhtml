@@ -6,10 +6,35 @@
 <h:head>
 	<title>Pregled najbližeg aerodroma za zadanu adresu</title>
 	<h:outputStylesheet library="css" name="default.css" />
+	<script type="text/javascript">
+		var wsocket;
+		function connect() {
+			wsocket = new WebSocket(
+					"ws://localhost:9090/tskobic-zadaca_3_wa_1/info");
+			console.log("Otvorena veza.");
+			wsocket.onmessage = onMessage;
+		}
+		function onMessage(evt) {
+			var info = evt.data;
+			console.log("Stigla poruka: " + info);
+			document.getElementById("info").innerHTML = info;
+		}
+		function info() {
+			wsocket.send("info");
+			console.log("Šaljem poruku: info");
+		}
+
+		window.addEventListener("load", connect, false);
+	</script>
 </h:head>
 <body>
 	<h2>Pregled najbližeg aerodroma za zadanu adresu</h2>
 	<h:link outcome="index.xhtml" value="Početak" />
+	<br />
+	<br /> WebSocket:
+	<span id="info" style="font-size: 20px"></span>
+	<br />
+	<h:commandButton value="Info" type="button" onclick="info()" />
 	<br />
 	<br />
 	<h:form id="f_koordinate">
@@ -42,5 +67,19 @@
 		value="Država: #{aerodromiWs.aerodrom != null ?
             aerodromiWs.aerodrom.drzava : ''}" />
 	<br />
+	<h5>Meteorološki podaci:</h5>
+	<h:form id="f_meteo">
+		ICAO: 
+		<h:inputText id="icao" value="#{meteoWs.icao}">
+		</h:inputText>
+		<h:commandButton id="pronadjiMeteo" value=" Daj meteo podatke"
+			action="#{meteoWs.getMeteoPodaci}">
+			<f:ajax event="action" execute="icao" render="meteo" />
+		</h:commandButton>
+	</h:form>
+	<br />
+	<h:outputText id="meteo"
+		value="#{meteoWs.meteoPodaci != null ?
+            meteoWs.ispis : ''}" />
 </body>
 </html>

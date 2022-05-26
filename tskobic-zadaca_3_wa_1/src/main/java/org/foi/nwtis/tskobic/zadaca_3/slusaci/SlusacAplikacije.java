@@ -11,16 +11,16 @@ import jakarta.servlet.ServletContextListener;
 import jakarta.servlet.annotation.WebListener;
 
 /**
- * Application Lifecycle Listener implementation class SlusacAplikacije
- *
+ * Klasa slušač SlusacAplikacije.
  */
 @WebListener
 public class SlusacAplikacije implements ServletContextListener {
 	
+	/** Dretva osvježivač. */
 	Osvjezivac osvjezivac = null;
 	
     /**
-     * Default constructor. 
+     * Konstruktor. 
      */
     public SlusacAplikacije() {
     }

@@ -19,12 +19,21 @@ import jakarta.servlet.ServletContext;
 import jakarta.xml.ws.WebServiceContext;
 import jakarta.xml.ws.handler.MessageContext;
 
+/**
+ * Klasa WsAerodromi
+ */
 @WebService(serviceName = "aerodromi")
 public class WsAerodromi {
 
+	/** Kontekst web servisa. */
 	@Resource
 	private WebServiceContext wsContext;
 
+	/**
+	 * Daje sve aerodrome.
+	 *
+	 * @return the list
+	 */
 	@WebMethod
 	public List<Aerodrom> dajSveAerodrome() {
 		PostavkeBazaPodataka konfig = dajPBP();
@@ -36,6 +45,11 @@ public class WsAerodromi {
 		return aerodromi;
 	}
 
+	/**
+	 * Daje praćene aerodrome.
+	 *
+	 * @return the list
+	 */
 	@WebMethod
 	public List<Aerodrom> dajAerodromePreuzimanje() {
 		PostavkeBazaPodataka konfig = dajPBP();
@@ -47,6 +61,12 @@ public class WsAerodromi {
 		return praceniAerodromi;
 	}
 
+	/**
+	 * Dodaje aerodrom za praćenje.
+	 *
+	 * @param icao icao aerodroma
+	 * @return true, ako je uspješno dodavanje
+	 */
 	@WebMethod
 	public boolean dodajAerodromPreuzimanje(@WebParam(name = "icao") String icao) {
 		PostavkeBazaPodataka konfig = dajPBP();
@@ -57,6 +77,13 @@ public class WsAerodromi {
 		return status;
 	}
 
+	/**
+	 * Daje polaske aviona s određenog aerodroma na određeni dan.
+	 *
+	 * @param icao icao aerodroma
+	 * @param dan  dan
+	 * @return the list
+	 */
 	@WebMethod
 	public List<AvionLeti> dajPolaske(@WebParam(name = "icao") String icao, @WebParam(name = "dan") String dan) {
 		PostavkeBazaPodataka konfig = dajPBP();
@@ -68,6 +95,13 @@ public class WsAerodromi {
 		return aerodromPolasci;
 	}
 
+	/**
+	 * Daje dolaske aviona s određenog aerodroma na određeni dan.
+	 *
+	 * @param icao icao aerodroma
+	 * @param dan  dan
+	 * @return the list
+	 */
 	@WebMethod
 	public List<AvionLeti> dajDolaske(@WebParam(name = "icao") String icao, @WebParam(name = "dan") String dan) {
 		PostavkeBazaPodataka konfig = dajPBP();
@@ -79,6 +113,14 @@ public class WsAerodromi {
 		return aerodromDolasci;
 	}
 
+	/**
+	 * Daje najbliži aerodrom na temelju proslijeđenih koordinata i na temelju
+	 * drugog parametra radi li se o praćenom ili svim aerodromima.
+	 *
+	 * @param lokacija lokacija
+	 * @param vrsta    vrsta aerodroma (svi ili praćeni)
+	 * @return the aerodrom
+	 */
 	@WebMethod
 	public Aerodrom dajNajbliziAerodrom(@WebParam(name = "lokacija") Lokacija lokacija,
 			@WebParam(name = "vrsta") boolean vrsta) {
@@ -115,6 +157,15 @@ public class WsAerodromi {
 		return najbliziAerodrom;
 	}
 
+	/**
+	 * Izračunava udaljenost između dvije koordinate.
+	 *
+	 * @param gs1 geografska širina prve lokacije
+	 * @param gd1 geografska duljina prve lokacije
+	 * @param gs2 geografska širina druge lokacije
+	 * @param gd2 geograska duljina druge lokacije
+	 * @return udaljenost
+	 */
 	private float udaljenost(float gs1, float gd1, float gs2, float gd2) {
 		double polumjerZemlje = 6371000;
 		double dGs = Math.toRadians(gs2 - gs1);
@@ -128,6 +179,11 @@ public class WsAerodromi {
 		return udalj;
 	}
 
+	/**
+	 * Daje postavke baze podataka iz konteksta servleta.
+	 *
+	 * @return postavke baza podataka
+	 */
 	private PostavkeBazaPodataka dajPBP() {
 		ServletContext context = (ServletContext) wsContext.getMessageContext().get(MessageContext.SERVLET_CONTEXT);
 		PostavkeBazaPodataka pbp = (PostavkeBazaPodataka) context.getAttribute("Postavke");

@@ -21,6 +21,14 @@ import org.foi.nwtis.tskobic.vjezba_06.konfiguracije.bazaPodataka.PostavkeBazaPo
  */
 public class AerodromiDolasciDAO {
 
+	/**
+	 * Dohvaća dolaske aviona na određeni aerodrom na određeni dan.
+	 *
+	 * @param icao icao aerodroma
+	 * @param dan dan
+	 * @param pbp postavke baze podataka
+	 * @return the lista dolazaka
+	 */
 	public List<AvionLeti> dohvatiDolaskeNaDan(String icao, String dan, PostavkeBazaPodataka pbp) {
 		String url = pbp.getServerDatabase() + pbp.getUserDatabase();
 		String bpkorisnik = pbp.getUserUsername();
@@ -80,6 +88,12 @@ public class AerodromiDolasciDAO {
 		return null;
 	}
 
+	/**
+	 * Izvršava pretvaranje datuma u sekunde.
+	 *
+	 * @param datum datum
+	 * @return the long
+	 */
 	public long izvrsiDatumPretvaranje(String datum) {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
 		Date date = null;

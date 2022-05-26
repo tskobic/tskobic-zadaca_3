@@ -9,17 +9,27 @@ import jakarta.faces.context.FacesContext;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
 
+/**
+ * Klasa Paginacija.
+ */
 @FacesConfig
 @ApplicationScoped
 @Named("paginacija")
 public class Paginacija {
 
+	/** Kontekst JSF aplikacije. */
 	@Inject
 	protected FacesContext facesContext;
 
+	/** Postavke baze podataka. */
 	PostavkeBazaPodataka konfig;
+	
+	/** Broj redova. */
 	String brojRedova;
 
+	/**
+	 * Metoda za inicijalizaciju.
+	 */
 	@PostConstruct
 	void init() {
 		konfig = (PostavkeBazaPodataka) FacesContext.getCurrentInstance().getExternalContext().getApplicationMap()
@@ -27,10 +37,20 @@ public class Paginacija {
 		brojRedova = konfig.dajPostavku("stranica.brojRedova");
 	}
 
+	/**
+	 * Vraća broj redova.
+	 *
+	 * @return the broj redova
+	 */
 	public String getBrojRedova() {
 		return brojRedova;
 	}
 
+	/**
+	 * Postavlja broj redova.
+	 *
+	 * @param brojRedova broj redova
+	 */
 	public void setBrojRedova(String brojRedova) {
 		this.brojRedova = brojRedova;
 	}

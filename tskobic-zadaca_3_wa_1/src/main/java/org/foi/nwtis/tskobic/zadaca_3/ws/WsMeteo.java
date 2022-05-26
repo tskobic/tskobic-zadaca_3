@@ -16,11 +16,22 @@ import jakarta.servlet.ServletContext;
 import jakarta.xml.ws.WebServiceContext;
 import jakarta.xml.ws.handler.MessageContext;
 
+/**
+ * Klasa WsMeteo
+ */
 @WebService(serviceName = "meteo")
 public class WsMeteo {
+	
+	/** Kontekst web servisa. */
 	@Resource
 	private WebServiceContext wsContext;
 
+	/**
+	 * Daje meteorološke podatke za određeni aeodrom.
+	 *
+	 * @param icao icao aerodroma
+	 * @return the meteo podaci
+	 */
 	@WebMethod
 	public MeteoPodaci dajMeteo(@WebParam(name = "icao") String icao) {
 		PostavkeBazaPodataka konfig = dajPBP();
@@ -48,6 +59,11 @@ public class WsMeteo {
 		return null;
 	}
 
+	/**
+	 * Daje postavke baze podataka.
+	 *
+	 * @return postavke baza podataka
+	 */
 	private PostavkeBazaPodataka dajPBP() {
 		ServletContext context = (ServletContext) wsContext.getMessageContext().get(MessageContext.SERVLET_CONTEXT);
 		PostavkeBazaPodataka pbp = (PostavkeBazaPodataka) context.getAttribute("Postavke");
